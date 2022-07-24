@@ -18,7 +18,7 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="30dp"
-            android:text="EXERCISE"/>
+            android:text="EXERCISE "/>
         <Button
             android:id="@+id/btn_balance"
             android:layout_width="140dp"
