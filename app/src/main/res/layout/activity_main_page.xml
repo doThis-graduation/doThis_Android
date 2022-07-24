@@ -18,13 +18,15 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="30dp"
-            android:text="EXERCISE"/>
+            android:text="EXERCISE"
+            android:background="@drawable/btn_custom"/>
         <Button
             android:id="@+id/btn_balance"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="30dp"
-            android:text="BALANCE"/>
+            android:text="BALANCE"
+            android:background="@drawable/btn_custom"/>
     </LinearLayout>
 
     <LinearLayout
@@ -37,13 +39,15 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="30dp"
-            android:text="COMMUNITY"/>
+            android:text="COMMUNITY"
+            android:background="@drawable/btn_custom"/>
         <Button
             android:id="@+id/btn_myPage"
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:layout_margin="30dp"
-            android:text="MY PAGE"/>
+            android:text="MY PAGE"
+            android:background="@drawable/btn_custom"/>
     </LinearLayout>
 
 </LinearLayout>
