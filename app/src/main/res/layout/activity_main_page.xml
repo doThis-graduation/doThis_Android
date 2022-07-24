@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainPageActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/btn_exercise"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="30dp"
+            android:text="EXERCISE"/>
+        <Button
+            android:id="@+id/btn_balance"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="30dp"
+            android:text="BALANCE"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <Button
+            android:id="@+id/btn_community"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="30dp"
+            android:text="COMMUNITY"/>
+        <Button
+            android:id="@+id/btn_myPage"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="30dp"
+            android:text="MY PAGE"/>
+    </LinearLayout>
+
+</LinearLayout>
