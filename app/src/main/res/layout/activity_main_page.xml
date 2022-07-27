@@ -19,7 +19,8 @@
             android:layout_height="140dp"
             android:layout_margin="30dp"
             android:text="EXERCISE"
-            android:background="@drawable/btn_custom"/>
+            android:background="@drawable/btn_custom"
+            android:onClick="exerciseClicked"/>
         <Button
             android:id="@+id/btn_balance"
             android:layout_width="140dp"
@@ -48,6 +49,10 @@
             android:layout_margin="30dp"
             android:text="MY PAGE"
             android:background="@drawable/btn_custom"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 </LinearLayout>
