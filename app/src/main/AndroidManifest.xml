@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.helthcare_exercise">
+    package="com.example.healthcare_exercise">
 
     <application
         android:allowBackup="true"
@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helthcare_exercise">
         <activity
-            android:name=".ExerciseActivity"
+            android:name="com.example.healthcare_exercise.ExerciseActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name="com.example.healthcare_exercise.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPageActivity"
+            android:name="com.example.healthcare_exercise.MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.healthcare_exercise.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

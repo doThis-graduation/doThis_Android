@@ -1,10 +1,10 @@
-package com.example.helthcare_exercise
+package com.example.healthcare_exercise
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.helthcare_exercise.databinding.ActivityMainPageBinding
+import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
 
 class MainPageActivity : AppCompatActivity() {
 

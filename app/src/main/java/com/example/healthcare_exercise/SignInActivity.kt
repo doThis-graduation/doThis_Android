@@ -1,12 +1,11 @@
-package com.example.helthcare_exercise
+package com.example.healthcare_exercise
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.helthcare_exercise.databinding.ActivityMainPageBinding
-import com.example.helthcare_exercise.databinding.ActivitySignInBinding
+import com.example.healthcare_exercise.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
     private var mBinding:ActivitySignInBinding? = null

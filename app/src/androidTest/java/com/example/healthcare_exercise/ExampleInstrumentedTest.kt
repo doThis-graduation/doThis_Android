@@ -1,4 +1,4 @@
-package com.example.helthcare_exercise
+package com.example.healthcare_exercise
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
