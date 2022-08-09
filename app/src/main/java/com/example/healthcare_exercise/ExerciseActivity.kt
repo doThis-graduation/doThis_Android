@@ -19,6 +19,7 @@ class ExerciseActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.frameLayout, ptFragment())
         transaction.commit()
+
     }
 
     fun ptList(view: View) {
