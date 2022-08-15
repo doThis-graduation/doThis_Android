@@ -130,7 +130,6 @@ class MainActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 9001
     }
 }
-
 //    //입력된 id, pw 읽어와서 파이어베이스와 비교. 로그인으로 넘어감.
 //    fun login(view: View) {
 //        val id = binding.etId.toString()
