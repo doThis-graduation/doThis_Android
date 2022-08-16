@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.healthcare_exercise.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -21,28 +22,14 @@ class MainActivity : AppCompatActivity() {
     private var mBinding: ActivityMainBinding? = null
     private val binding get() = mBinding!!
 
-//    private val TAG = this.javaClass.simpleName
-//
-//    private lateinit var launcher: ActivityResultLauncher<Intent>
-//    private lateinit var firebaseAuth: FirebaseAuth
-//
-//    private var email: String = ""
-//    private var tokenId: String? = null
-//    /////
-//    private val REQ_ONE_TAP = 2  // Can be any integer unique to the Activity
-//    private var showOneTapUI = true
-
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    ///
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
 
         // [START config_signin]
         // Configure Google Sign In
@@ -120,6 +107,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+//    private fun signOut(){
+//        Firebase.auth.signOut()
+//        Toast.makeText(this, "sign Out!",Toast.LENGTH_LONG).show()
+//    }
     companion object {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001

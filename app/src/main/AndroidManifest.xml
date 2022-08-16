@@ -12,22 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helthcare_exercise">
         <activity
-            android:name="com.example.healthcare_exercise.ExerciseActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.healthcare_exercise.SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.healthcare_exercise.MainPageActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.healthcare_exercise.MainActivity"
+            android:name=".introActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ExerciseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
         </activity>
     </application>
 

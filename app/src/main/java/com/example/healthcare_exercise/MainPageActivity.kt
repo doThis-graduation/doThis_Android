@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainPageActivity : AppCompatActivity() {
 
@@ -13,6 +18,7 @@ class MainPageActivity : AppCompatActivity() {
     private val binding get() = mBinding!!
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var googleSignInClient:GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +26,13 @@ class MainPageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+
+        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this,gso)
     }
 
     override fun onBackPressed() {
@@ -32,7 +45,6 @@ class MainPageActivity : AppCompatActivity() {
     }
 
     fun logout(view: View) {
-        auth.signOut()
         var intent=Intent(this, MainActivity::class.java)
         startActivity(intent)
         this.finish()

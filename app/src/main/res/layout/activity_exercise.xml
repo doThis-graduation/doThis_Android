@@ -31,7 +31,7 @@
                     android:maxWidth="300dp"
                     android:text="PT"
                     android:textSize="80sp"
-                    android:onClick="ptList"/>
+                    android:onClick="ptList" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
