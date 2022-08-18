@@ -13,7 +13,7 @@
         android:title="Balance"/>
 
     <item
-        android:id="@+id/bn_notice"
+        android:id="@+id/bn_community"
         android:enabled="true"
         android:icon="@drawable/noticeboard_icon"
         android:title="community"/>

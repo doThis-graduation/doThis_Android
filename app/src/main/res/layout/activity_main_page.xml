@@ -26,7 +26,7 @@
     <FrameLayout
         android:id="@+id/mainFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
@@ -35,58 +35,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="#fff"
-        app:menu="@menu/bottom_navigation_menu" />
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_gravity="center">-->
-<!--        <Button-->
-<!--            android:id="@+id/btn_exercise"-->
-<!--            android:layout_width="140dp"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_margin="30dp"-->
-<!--            android:text="EXERCISE"-->
-<!--            android:background="@drawable/btn_custom"-->
-<!--            android:onClick="exerciseClicked"/>-->
-<!--        <Button-->
-<!--            android:id="@+id/btn_balance"-->
-<!--            android:layout_width="140dp"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_margin="30dp"-->
-<!--            android:text="BALANCE"-->
-<!--            android:background="@drawable/btn_custom"/>-->
-<!--    </LinearLayout>-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:layout_gravity="center">-->
-<!--        <Button-->
-<!--            android:id="@+id/btn_community"-->
-<!--            android:layout_width="140dp"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_margin="30dp"-->
-<!--            android:text="COMMUNITY"-->
-<!--            android:background="@drawable/btn_custom"/>-->
-<!--        <Button-->
-<!--            android:id="@+id/btn_myPage"-->
-<!--            android:layout_width="140dp"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_margin="30dp"-->
-<!--            android:text="MY PAGE"-->
-<!--            android:background="@drawable/btn_custom"/>-->
-
-<!--        <FrameLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"/>-->
-<!--    </LinearLayout>-->
-
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="LOGOUT"-->
-<!--        android:onClick="logout"/>-->
-
+        app:menu="@menu/bottom_navigation_menu"
+        app:labelVisibilityMode="labeled"
+        android:nestedScrollingEnabled="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
 </RelativeLayout>
