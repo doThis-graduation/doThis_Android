@@ -14,7 +14,7 @@
         <TextView
             android:id="@+id/tv_logo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="66dp"
             android:text="doThis"
             android:textColor="@color/white"
             android:background="@color/black"
@@ -26,8 +26,7 @@
     <FrameLayout
         android:id="@+id/mainFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </FrameLayout>
+        android:layout_height="match_parent"></FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.healthcare_exercise.databinding.ActivityExerciseBinding
+import fragment.ExerciseFragment
+
 //import fragment.ptFragment
 
 class ExerciseActivity : AppCompatActivity() {
@@ -16,9 +18,6 @@ class ExerciseActivity : AppCompatActivity() {
         mBinding = ActivityExerciseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.add(R.id.frameLayout, ptFragment())
-//        transaction.commit()
 
     }
 
