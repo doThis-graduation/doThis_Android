@@ -1,5 +1,6 @@
 package com.example.healthcare_exercise
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,11 +26,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    public lateinit var mContext: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        mContext = this;
 
         // [START config_signin]
         // Configure Google Sign In
@@ -107,15 +112,23 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    private fun signOut(){
-//        Firebase.auth.signOut()
-//        Toast.makeText(this, "sign Out!",Toast.LENGTH_LONG).show()
-//    }
+    fun signOut(){
+        Firebase.auth.signOut()
+        googleSignInClient!!.signOut()
+        Toast.makeText(this, "sign Out!",Toast.LENGTH_LONG).show()
+    }
     companion object {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
 }
+
+
+
+
+
+
+
 //    //입력된 id, pw 읽어와서 파이어베이스와 비교. 로그인으로 넘어감.
 //    fun login(view: View) {
 //        val id = binding.etId.toString()

@@ -1,7 +1,9 @@
 package com.example.healthcare_exercise
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,6 +27,7 @@ class MainPageActivity : AppCompatActivity() {
         transaction.add(R.id.mainFrame, ExerciseFragment())
         transaction.commit()
 
+        //bottom navigation fragment 변경
         var bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.run { setOnNavigationItemReselectedListener {
             when(it.itemId){
