@@ -114,7 +114,10 @@ class MainActivity : AppCompatActivity() {
 
     fun signOut(){
         Firebase.auth.signOut()
-        googleSignInClient!!.signOut()
+        googleSignInClient!!.signOut().addOnCompleteListener{
+            MainPageActivity().finish()
+            MainActivity().finish()
+        }
         Toast.makeText(this, "sign Out!",Toast.LENGTH_LONG).show()
     }
     companion object {

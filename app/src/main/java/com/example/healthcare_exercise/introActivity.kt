@@ -15,6 +15,6 @@ class introActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
-        },3000)
+        },1000)
     }
 }

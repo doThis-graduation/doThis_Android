@@ -1,10 +1,12 @@
 package com.example.healthcare_exercise
 
+import android.Manifest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fragment.BalanceFragment
@@ -50,6 +52,10 @@ class MainPageActivity : AppCompatActivity() {
             }
             true
         } }
+
+        //upload 접근 권한 설정
+        ActivityCompat.requestPermissions(this,
+        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
     }
 
     override fun onBackPressed() {
