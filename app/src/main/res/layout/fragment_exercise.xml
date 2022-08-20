@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
-        <ImageView
+        <VideoView
             android:id="@+id/img_pre"
             android:layout_width="300dp"
             android:layout_height="300dp"

@@ -39,8 +39,8 @@ class ExerciseFragment : Fragment() {
 
         viewProfile!!.btn_upload.setOnClickListener{
             var photoPickerIntent = Intent(Intent.ACTION_PICK)
-            photoPickerIntent.type = "image/*"
-//            photoPickerIntent.type = "video/*"
+//            photoPickerIntent.type = "image/*"
+            photoPickerIntent.type = "video/*"
             Toast.makeText(context,"success",Toast.LENGTH_SHORT).show()
             startActivityForResult(photoPickerIntent, pickImageFromAlbum)
         }
@@ -54,9 +54,10 @@ class ExerciseFragment : Fragment() {
         if(requestCode == pickImageFromAlbum){
 //            if(requestCode == Activity.RESULT_OK){
                 Toast.makeText(context,"in set",Toast.LENGTH_SHORT).show()
-                //img_pre set
+                //img_pre 미리보기
                 uriPhoto = data?.data
-                img_pre.setImageURI(uriPhoto)
+//                img_pre.setImageURI(uriPhoto)
+                img_pre.setVideoURI(uriPhoto)
 
                 //firebase에 업로드 하는 함수로 이동
                 funImageUpload(viewProfile!!)
@@ -66,8 +67,8 @@ class ExerciseFragment : Fragment() {
 
     private fun funImageUpload(view:View){
         var timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        var imgFileName = "IMAGE_"+timeStamp+"_.png"
-        var storageRef = fbStorage?.reference?.child("images")?.child(imgFileName)
+        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
+        var storageRef = fbStorage?.reference?.child("videos")?.child(imgFileName)
 
         Toast.makeText(context,"In",Toast.LENGTH_SHORT).show()
         storageRef?.putFile(uriPhoto!!)?.addOnSuccessListener{
