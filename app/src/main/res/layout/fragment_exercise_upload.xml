@@ -1,0 +1,140 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragment.ExerciseUploadFragment"
+    android:layout_marginTop="66dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+            <VideoView
+                android:id="@+id/video_view"
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
+            <TextView
+                android:id="@+id/tx_info"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:text="E-mail: \nUser: \nDate: "
+                android:textSize="20sp"
+                android:layout_marginLeft="15dp"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tx_chest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가슴"
+                    android:textSize="25sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/chest1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="벤치프레스" />
+
+                    <RadioButton
+                        android:id="@+id/chest2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="인클라인 벤치프레스" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tx_bi_arm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이두"
+                    android:textSize="25sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/bi1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="덤벨컬" />
+
+                    <RadioButton
+                        android:id="@+id/bi2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="바벨컬" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tx_tri_arm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="삼두"
+                    android:textSize="25sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/tri1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="라잉 바벨" />
+
+                    <RadioButton
+                        android:id="@+id/tri2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시티드 덤벨" />
+                </LinearLayout>
+            </LinearLayout>
+        </RadioGroup>
+        <EditText
+            android:id="@+id/et_memo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="MEMO"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="분석하기"
+            android:textSize="20dp"
+            android:background="@color/main_color_y"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80dp"/>
+    </RelativeLayout>
+
+</FrameLayout>

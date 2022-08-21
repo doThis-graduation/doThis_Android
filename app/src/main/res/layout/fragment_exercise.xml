@@ -8,20 +8,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="선택하기"
+            android:textSize="20sp"
+            android:backgroundTint="@color/main_color_y" />
         <VideoView
             android:id="@+id/img_pre"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_margin="15dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:visibility="invisible"
+            android:layout_gravity="center"/>
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="업로드"
             android:textSize="20sp"
-            android:backgroundTint="@color/main_color_y" />
+            android:backgroundTint="@color/main_color_y"
+            android:visibility="invisible"/>
     </LinearLayout>
 
 </FrameLayout>

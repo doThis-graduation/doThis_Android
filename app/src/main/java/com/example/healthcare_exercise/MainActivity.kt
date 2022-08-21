@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             .requestEmail()
             .build()
 
+
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         println("good")
         // [END config_signin]
@@ -101,6 +102,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    getUserProfile()
                     updateUI(null)
                 }
             }
@@ -120,6 +122,26 @@ class MainActivity : AppCompatActivity() {
         }
         Toast.makeText(this, "sign Out!",Toast.LENGTH_LONG).show()
     }
+
+    private fun getUserProfile(){
+        val user = Firebase.auth.currentUser
+        Toast.makeText(this,"GET START",Toast.LENGTH_SHORT).show()
+//        user?.let {
+        Toast.makeText(this,"GET INININ",Toast.LENGTH_SHORT).show()
+        val name = user?.displayName
+        val email = user?.email
+        val photoUrl = user?.photoUrl
+
+//            val emailVerified = user.isEmailVerified
+
+//            val uid = user.uid
+        Toast.makeText(this,name+"----"+email,Toast.LENGTH_SHORT).show()
+
+        Log.i("aa", "=============================%%%%%%#$%#%#$%#$%#$%#$%#$%#$%#$%")
+        Log.i("aa", "getUserProfile: "+email+" "+name)
+//        }
+    }
+
     companion object {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
