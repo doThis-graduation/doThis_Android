@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -20,16 +21,19 @@ class MainPageActivity : AppCompatActivity() {
     private var mBinding: ActivityMainPageBinding? = null
     private val binding get() = mBinding!!
 
+    lateinit var email:String
+    lateinit var name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //읽어온 사용자 정보 받아오기
+        email = intent.getStringExtra("email").toString()
+        name = intent.getStringExtra("name").toString()
+
         //default fragment 설정
         setFragment(ExerciseFragment())
-//        val transaction = supportFragmentManager.beginTransaction()
-//        transaction.add(R.id.mainFrame, ExerciseFragment())
-//        transaction.commit()
 
         //bottom navigation fragment 변경
         var bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
@@ -37,22 +41,18 @@ class MainPageActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.bn_exercise ->{
                     Toast.makeText(context, "E clicked", Toast.LENGTH_SHORT).show()
-//                    supportFragmentManager.beginTransaction().replace(R.id.mainFrame, ExerciseFragment()).commit()
                     setFragment(ExerciseFragment())
                 }
                 R.id.bn_balance ->{
                     Toast.makeText(context, "B clicked", Toast.LENGTH_SHORT).show()
-//                    supportFragmentManager.beginTransaction().replace(R.id.mainFrame, BalanceFragment()).commit()
                     setFragment(BalanceFragment())
                 }
                 R.id.bn_community ->{
                     Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
-//                    supportFragmentManager.beginTransaction().replace(R.id.mainFrame, CommunityFragment()).commit()
                     setFragment(CommunityFragment())
                 }
                 R.id.bn_mypage ->{
                     Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()
-//                    supportFragmentManager.beginTransaction().replace(R.id.mainFrame, MyPageFragment()).commit()
                     setFragment(MyPageFragment())
                 }
             }
@@ -64,9 +64,13 @@ class MainPageActivity : AppCompatActivity() {
         arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
     }
 
-    fun setDataAtFragment(fragment:Fragment, name:String){
+    fun setDataAtFragment(fragment:Fragment, uri:String){
         val bundle = Bundle()
         bundle.putString("name",name)
+        bundle.putString("email",email)
+        bundle.putString("uri",uri)
+
+        fragment.arguments=bundle
         setFragment(fragment)
     }
 

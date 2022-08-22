@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:text="E-mail: \nUser: \nDate: "
-                android:textSize="20sp"
+                android:textSize="17sp"
                 android:layout_marginLeft="15dp"/>
         </LinearLayout>
 
