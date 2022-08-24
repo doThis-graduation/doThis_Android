@@ -31,7 +31,6 @@ class ExerciseFragment : Fragment() {
 
     private var viewProfile : View?=null
     var pickImageFromAlbum = 0
-    var fbStorage : FirebaseStorage?=null
     var uriPhoto : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +42,6 @@ class ExerciseFragment : Fragment() {
     ): View? {
 
         viewProfile = inflater.inflate(R.layout.fragment_exercise, container, false)
-
-        fbStorage = FirebaseStorage.getInstance()
 
         //선택하기 버튼 listener
         viewProfile!!.btn_choose.setOnClickListener{
@@ -71,24 +68,11 @@ class ExerciseFragment : Fragment() {
 
                 //firebase에 업로드 하는 함수로 이동 -> upload fragment로 전환
                 btn_upload.setOnClickListener(View.OnClickListener {
-//                    funImageUpload(viewProfile!!)
-
                     val strUri = uriPhoto.toString()
                     val mainPageActivity = activity as MainPageActivity
                     mainPageActivity.setDataAtFragment(ExerciseUploadFragment(), strUri)
                 })
 //            }
-        }
-    }
-
-    private fun funImageUpload(view:View){
-        var timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
-        var storageRef = fbStorage?.reference?.child("videos")?.child(imgFileName)
-
-        Toast.makeText(context,"In",Toast.LENGTH_SHORT).show()
-        storageRef?.putFile(uriPhoto!!)?.addOnSuccessListener{
-            Toast.makeText(context,"Image Uploaded",Toast.LENGTH_SHORT).show()
         }
     }
 }
