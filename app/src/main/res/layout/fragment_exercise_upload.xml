@@ -28,102 +28,13 @@
                 android:layout_marginLeft="15dp"/>
         </LinearLayout>
 
-        <RadioGroup
+        <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tx_chest"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="가슴"
-                    android:textSize="25sp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/chest1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="벤치프레스" />
-
-                    <RadioButton
-                        android:id="@+id/chest2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="인클라인 벤치프레스" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tx_bi_arm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이두"
-                    android:textSize="25sp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/bi1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="덤벨컬" />
-
-                    <RadioButton
-                        android:id="@+id/bi2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="바벨컬" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tx_tri_arm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="삼두"
-                    android:textSize="25sp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/tri1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="라잉 바벨" />
-
-                    <RadioButton
-                        android:id="@+id/tri2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="시티드 덤벨" />
-                </LinearLayout>
-            </LinearLayout>
-        </RadioGroup>
-        <EditText
-            android:id="@+id/et_memo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="MEMO"
-            android:layout_marginTop="20dp"/>
+            android:layout_margin="10dp"/>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
