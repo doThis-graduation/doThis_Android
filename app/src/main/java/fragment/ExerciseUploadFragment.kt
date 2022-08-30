@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
@@ -78,8 +79,18 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
 
+        //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
+            //확인 메세지 출력
             Toast.makeText(context,"Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
+            //fragment 전환
+            changeFragment()
         }
+    }
+
+    //fragment 전환
+    private fun changeFragment(){
+        val activity = activity as MainPageActivity
+        activity.setFragment(ExerciseAnalyseFragment())
     }
 }
