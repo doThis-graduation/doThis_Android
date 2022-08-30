@@ -79,6 +79,8 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
 
+        this.viewProfile!!.progress_bar.visibility = View.VISIBLE
+
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
             //확인 메세지 출력
