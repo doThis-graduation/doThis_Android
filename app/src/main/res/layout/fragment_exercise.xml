@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="선택하기"
             android:textSize="20sp"
-            android:backgroundTint="@color/main_color_y" />
+            android:backgroundTint="@color/main_color_g" />
         <VideoView
             android:id="@+id/img_pre"
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="업로드"
             android:textSize="20sp"
-            android:backgroundTint="@color/main_color_y"
+            android:backgroundTint="@color/main_color_g"
             android:visibility="invisible"/>
     </LinearLayout>
 
