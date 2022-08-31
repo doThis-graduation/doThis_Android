@@ -16,6 +16,7 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.concurrent.thread
 
 
 class ExerciseUploadFragment : Fragment() {
@@ -79,7 +80,13 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
 
+        //프로그레스바
         this.viewProfile!!.progress_bar.visibility = View.VISIBLE
+        this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+
+        thread(start = true){
+            Thread.sleep(3000)
+        }
 
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
