@@ -80,16 +80,22 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
 
-        //프로그레스바
+        //프로그레스바 loading 시작
         this.viewProfile!!.progress_bar.visibility = View.VISIBLE
         this.viewProfile!!.tx_progress.visibility = View.VISIBLE
-
-        thread(start = true){
-            Thread.sleep(3000)
-        }
+//        thread(start = true){
+//            Thread.sleep(500)
+//            this.viewProfile!!.progress_bar.incrementProgressBy(15)
+//            Thread.sleep(500)
+//            this.viewProfile!!.progress_bar.incrementProgressBy(15)
+//            Thread.sleep(500)
+//            this.viewProfile!!.progress_bar.incrementProgressBy(15)
+//        }
 
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
+            //loading 끝냄
+//            this.viewProfile!!.progress_bar.progress = 100
             //확인 메세지 출력
             Toast.makeText(context,"Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
             //fragment 전환
