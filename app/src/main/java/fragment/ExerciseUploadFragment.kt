@@ -78,6 +78,7 @@ class ExerciseUploadFragment : Fragment() {
     private fun funImageUpload(view:View){
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
+        if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
 
         //프로그레스바 loading 시작
