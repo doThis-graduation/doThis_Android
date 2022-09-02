@@ -6,8 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.healthcare_exercise.R
+import kotlinx.android.synthetic.main.fragment_balance.*
+import kotlinx.android.synthetic.main.fragment_balance.view.*
 
 class BalanceFragment : Fragment() {
+
+    private var viewProfile : View?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -16,7 +21,23 @@ class BalanceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_balance, container, false)
+
+        viewProfile = inflater.inflate(R.layout.fragment_balance, container, false)
+
+        viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
+            settingPermission()
+            startCamera()
+        })
+
+        return viewProfile
+    }
+
+
+    fun settingPermission() {
+
+    }
+
+    fun startCamera() {
+
     }
 }
