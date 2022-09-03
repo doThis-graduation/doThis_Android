@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.fragment_balance.view.*
 class BalanceFragment : Fragment() {
 
     private var viewProfile : View?=null
+    val REQUEST_IMAGE_CAPTURE = 1
+    lateinit var currentPhotoPath : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,7 @@ class BalanceFragment : Fragment() {
     fun settingPermission() {
 
     }
+
 
     fun startCamera() {
 

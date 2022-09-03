@@ -20,8 +20,10 @@ import com.example.healthcare_exercise.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.fragment_balance.view.*
 import kotlinx.android.synthetic.main.fragment_exercise.*
 import kotlinx.android.synthetic.main.fragment_exercise.view.*
+import kotlinx.android.synthetic.main.fragment_exercise.view.btn_choose
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.jar.Manifest
@@ -49,6 +51,9 @@ class ExerciseFragment : Fragment() {
             photoPickerIntent.type = "video/*"
             startActivityForResult(photoPickerIntent, pickImageFromAlbum)
         }
+
+        //카메라 버튼
+        viewProfile!!.btn_camera.setOnClickListener {  }
         return viewProfile
     }
 
