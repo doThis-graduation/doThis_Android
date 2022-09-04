@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_balance.view.*
 import kotlinx.android.synthetic.main.fragment_exercise.*
 import kotlinx.android.synthetic.main.fragment_exercise.view.*
 import kotlinx.android.synthetic.main.fragment_exercise.view.btn_choose
+import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.jar.Manifest

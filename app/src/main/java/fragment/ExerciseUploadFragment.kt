@@ -79,7 +79,7 @@ class ExerciseUploadFragment : Fragment() {
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
-        var storageRef = fbStorage?.reference?.child(email)?.child(method)?.child(imgFileName)
+        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(imgFileName)
 
         //프로그레스바 loading 시작
         this.viewProfile!!.progress_bar.visibility = View.VISIBLE
@@ -98,7 +98,7 @@ class ExerciseUploadFragment : Fragment() {
             //loading 끝냄
 //            this.viewProfile!!.progress_bar.progress = 100
             //확인 메세지 출력
-            Toast.makeText(context,"Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
+            Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
             //fragment 전환
             changeFragment()
         }
