@@ -61,7 +61,9 @@ class MainPageActivity : AppCompatActivity() {
 
         //upload 접근 권한 설정
         ActivityCompat.requestPermissions(this,
-        arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
+            arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),1)
+//        ActivityCompat.requestPermissions(this,
+//            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
     }
 
     fun setDataAtFragment(fragment:Fragment, uri:String){

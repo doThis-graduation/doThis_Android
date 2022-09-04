@@ -52,8 +52,8 @@ class ExerciseFragment : Fragment() {
             startActivityForResult(photoPickerIntent, pickImageFromAlbum)
         }
 
-        //카메라 버튼
-        viewProfile!!.btn_camera.setOnClickListener {  }
+        //카메라 버튼 listener
+//        viewProfile!!.btn_camera.setOnClickListener {  }
         return viewProfile
     }
 
