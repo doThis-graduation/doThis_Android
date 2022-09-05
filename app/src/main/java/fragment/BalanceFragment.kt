@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
+import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.*
@@ -66,7 +67,7 @@ class BalanceFragment : Fragment() {
             btn_upload.setOnClickListener(View.OnClickListener {
                 fbStorage = FirebaseStorage.getInstance()
 
-                var email = arguments?.getString("email").toString()
+                var email = (activity as MainPageActivity).email
                 var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
                 var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
                 var storageRef = fbStorage?.reference?.child(email)?.child("balance")?.child(imgFileName)
