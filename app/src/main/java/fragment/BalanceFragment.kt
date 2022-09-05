@@ -36,14 +36,14 @@ class BalanceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         viewProfile = inflater.inflate(R.layout.fragment_balance, container, false)
 
-//        viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
-//            settingPermission()
-//            startCamera()
-//        })
+        //카메라 촬영
+        viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
+            //카메라 실행 코드
+        })
 
+        //동영상 선택
         viewProfile!!.btn_choose.setOnClickListener(View.OnClickListener {
             var photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "video/*"
@@ -77,10 +77,6 @@ class BalanceFragment : Fragment() {
                 }
             })
         }
-    }
-
-    fun settingPermission() {
-
     }
 
 
