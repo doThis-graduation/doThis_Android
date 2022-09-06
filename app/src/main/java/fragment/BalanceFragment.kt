@@ -3,17 +3,22 @@ package fragment
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.*
 import kotlinx.android.synthetic.main.fragment_balance.view.*
+import java.io.File
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -41,6 +46,7 @@ class BalanceFragment : Fragment() {
         //카메라 촬영
         viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
             //카메라 실행 코드
+            startCapture()
         })
 
         //동영상 선택
@@ -56,6 +62,7 @@ class BalanceFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        //선택하기에 대한 실행
         if(requestCode == pickImageFromAlbum){
             uriPhoto = data?.data
             img_pre.visibility = View.VISIBLE
@@ -77,10 +84,46 @@ class BalanceFragment : Fragment() {
                 }
             })
         }
+
+        //사진촬영에 대한 실행
+        if(requestCode == REQUEST_IMAGE_CAPTURE){
+
+        }
     }
 
 
-    fun startCamera() {
+    fun startCapture(){
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePicktureIntent ->
+            takePicktureIntent.resolveActivity(packageManager)?.also {
+                val photoFile: File? = try {
+                    createImageFile()
+                }
+                catch(ex: IOException){
+                    null
+                }
+                photoFile?.also {
+                    val photoURI : Uri = FileProvider.getUriForFile(
+                        this,
+                        "org.techtown.capturepicture.fileprovider",
+                        it
+                    )
+                    takePicktureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                    startActivityForResult(takePicktureIntent, REQUEST_IMAGE_CAPTURE)
+                }
+            }
+        }
+    }
 
+    fun createImageFile(): File {
+
+        val timeStamp : String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir : File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            "JPEG_${timeStamp}_",
+            ".jpg",
+            storageDir
+        ).apply{
+            currentPhotoPath = absolutePath
+        }
     }
 }

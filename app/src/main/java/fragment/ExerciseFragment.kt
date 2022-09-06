@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.util.Log.ASSERT
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentManager
 import com.example.healthcare_exercise.MainActivity
 import com.example.healthcare_exercise.MainPageActivity
@@ -25,6 +27,8 @@ import kotlinx.android.synthetic.main.fragment_exercise.*
 import kotlinx.android.synthetic.main.fragment_exercise.view.*
 import kotlinx.android.synthetic.main.fragment_exercise.view.btn_choose
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+import java.io.File
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.jar.Manifest
@@ -61,6 +65,7 @@ class ExerciseFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        //선택하기에 대한 결과
         if(requestCode == pickImageFromAlbum){
 //            if(requestCode == Activity.RESULT_OK){
                 //img_pre 미리보기
