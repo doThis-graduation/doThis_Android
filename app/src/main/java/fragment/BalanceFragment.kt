@@ -76,8 +76,9 @@ class BalanceFragment : Fragment() {
 
                 var email = (activity as MainPageActivity).email
                 var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
+                var date = SimpleDateFormat("yyMMdd").format(Date())
                 var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
-                var storageRef = fbStorage?.reference?.child(email)?.child("balance")?.child(imgFileName)
+                var storageRef = fbStorage?.reference?.child(email)?.child("balance")?.child(date)?.child(imgFileName)
 
                 storageRef?.putFile(uriPhoto!!)?.addOnSuccessListener {
                     Toast.makeText(context, "balance Video Uploaded", Toast.LENGTH_LONG).show()
