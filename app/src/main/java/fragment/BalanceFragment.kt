@@ -46,7 +46,7 @@ class BalanceFragment : Fragment() {
         //카메라 촬영
         viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
             //카메라 실행 코드
-            startCapture()
+//            startCapture()
         })
 
         //동영상 선택
@@ -82,6 +82,9 @@ class BalanceFragment : Fragment() {
 
                 storageRef?.putFile(uriPhoto!!)?.addOnSuccessListener {
                     Toast.makeText(context, "balance Video Uploaded", Toast.LENGTH_LONG).show()
+
+                    //upload가 완료되면 balance page로 이동
+                    changeFragment()
                 }
             })
         }
@@ -93,38 +96,44 @@ class BalanceFragment : Fragment() {
     }
 
 
-    fun startCapture(){
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePicktureIntent ->
-            takePicktureIntent.resolveActivity(packageManager)?.also {
-                val photoFile: File? = try {
-                    createImageFile()
-                }
-                catch(ex: IOException){
-                    null
-                }
-                photoFile?.also {
-                    val photoURI : Uri = FileProvider.getUriForFile(
-                        this,
-                        "org.techtown.capturepicture.fileprovider",
-                        it
-                    )
-                    takePicktureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                    startActivityForResult(takePicktureIntent, REQUEST_IMAGE_CAPTURE)
-                }
-            }
-        }
-    }
+//    fun startCapture(){
+//        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePicktureIntent ->
+//            takePicktureIntent.resolveActivity(packageManager)?.also {
+//                val photoFile: File? = try {
+//                    createImageFile()
+//                }
+//                catch(ex: IOException){
+//                    null
+//                }
+//                photoFile?.also {
+//                    val photoURI : Uri = FileProvider.getUriForFile(
+//                        this,
+//                        "org.techtown.capturepicture.fileprovider",
+//                        it
+//                    )
+//                    takePicktureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+//                    startActivityForResult(takePicktureIntent, REQUEST_IMAGE_CAPTURE)
+//                }
+//            }
+//        }
+//    }
+//
+//    fun createImageFile(): File {
+//
+//        val timeStamp : String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+//        val storageDir : File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+//        return File.createTempFile(
+//            "JPEG_${timeStamp}_",
+//            ".jpg",
+//            storageDir
+//        ).apply{
+//            currentPhotoPath = absolutePath
+//        }
+//    }
 
-    fun createImageFile(): File {
-
-        val timeStamp : String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-        val storageDir : File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(
-            "JPEG_${timeStamp}_",
-            ".jpg",
-            storageDir
-        ).apply{
-            currentPhotoPath = absolutePath
-        }
+    //fragment  전환
+    private fun changeFragment(){
+        val activity = activity as MainPageActivity
+        activity.setFragment(BalanceAnalyseFragment())
     }
 }
