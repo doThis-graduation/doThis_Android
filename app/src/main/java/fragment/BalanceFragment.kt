@@ -1,6 +1,8 @@
 package fragment
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -78,6 +80,12 @@ class BalanceFragment : Fragment() {
                 //progressBar 시작
                 this.viewProfile!!.progress_bar.visibility = View.VISIBLE
                 this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+
+                //layout 반투명화
+                val paint = Paint()
+                paint.alpha = 80
+                this.viewProfile!!.entire_layout.setBackgroundColor(paint.getColor())
+                this.viewProfile!!.img_pre.setBackgroundColor(paint.getColor())
 
                 fbStorage = FirebaseStorage.getInstance()
 
