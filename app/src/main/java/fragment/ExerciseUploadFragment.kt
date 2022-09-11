@@ -1,6 +1,7 @@
 package fragment
 
 import android.content.Context
+import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,7 +14,10 @@ import android.widget.Toast
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.fragment_balance.view.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
+import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.thread
@@ -76,15 +80,23 @@ class ExerciseUploadFragment : Fragment() {
     }
 
     private fun funImageUpload(view:View){
+        //프로그레스바 loading 시작
+        this.viewProfile!!.progress_bar.visibility = View.VISIBLE
+        this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+
+        //layout 반투명화
+        val paint = Paint()
+        paint.alpha = 80
+        this.viewProfile!!.exercise_layout.setBackgroundColor(paint.getColor())
+        this.viewProfile!!.video_view.setBackgroundColor(paint.getColor())
+
+        //upload
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         var date = SimpleDateFormat("yyMMdd").format(Date())
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
 
-        //프로그레스바 loading 시작
-        this.viewProfile!!.progress_bar.visibility = View.VISIBLE
-        this.viewProfile!!.tx_progress.visibility = View.VISIBLE
 //        thread(start = true){
 //            Thread.sleep(500)
 //            this.viewProfile!!.progress_bar.incrementProgressBy(15)

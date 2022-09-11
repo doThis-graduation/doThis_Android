@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fragment.ExerciseUploadFragment"
-    android:layout_marginTop="66dp">
+    android:layout_marginTop="66dp"
+    android:id="@+id/exercise_layout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +43,7 @@
         <ProgressBar
             android:id="@+id/progress_bar"
             android:indeterminateDrawable="@drawable/loading_img"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="100dp"

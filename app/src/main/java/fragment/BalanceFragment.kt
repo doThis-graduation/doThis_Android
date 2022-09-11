@@ -84,7 +84,7 @@ class BalanceFragment : Fragment() {
                 //layout 반투명화
                 val paint = Paint()
                 paint.alpha = 80
-                this.viewProfile!!.entire_layout.setBackgroundColor(paint.getColor())
+                this.viewProfile!!.balance_layout.setBackgroundColor(paint.getColor())
                 this.viewProfile!!.img_pre.setBackgroundColor(paint.getColor())
 
                 fbStorage = FirebaseStorage.getInstance()
