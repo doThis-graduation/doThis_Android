@@ -45,4 +45,32 @@
 
     </LinearLayout>
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:indeterminateDrawable="@drawable/loading_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/tx_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading..."
+            android:textStyle="bold"
+            android:layout_below="@id/progress_bar"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
 </FrameLayout>

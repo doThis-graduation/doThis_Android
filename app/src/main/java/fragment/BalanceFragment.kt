@@ -17,10 +17,13 @@ import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.*
 import kotlinx.android.synthetic.main.fragment_balance.view.*
+import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlinx.android.synthetic.main.fragment_balance.view.progress_bar as progress_bar1
+import kotlinx.android.synthetic.main.fragment_balance.view.tx_progress as tx_progress1
 
 class BalanceFragment : Fragment() {
 
@@ -72,6 +75,10 @@ class BalanceFragment : Fragment() {
             btn_upload.visibility = View.VISIBLE
 
             btn_upload.setOnClickListener(View.OnClickListener {
+                //progressBar 시작
+                this.viewProfile!!.progress_bar.visibility = View.VISIBLE
+                this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+
                 fbStorage = FirebaseStorage.getInstance()
 
                 var email = (activity as MainPageActivity).email
