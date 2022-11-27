@@ -1,6 +1,8 @@
 package fragment
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
@@ -13,6 +15,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
@@ -111,6 +115,35 @@ class BalanceFragment : Fragment() {
     }
 
 
+    //======================================새로운 startCapture()
+//    fun startCapture(){
+//        val CAMERA_PERMISSION = arrayOf(Manifest.permission.CAMERA)
+//        val STORAGE_PERMISSION = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//
+//        //권한 플래그값 정의
+//        val FLAG_PERM_CAMERA = 98
+//        val FLAG_PERM_STORAGE = 99
+//
+//        //카메라와 갤러리를 호출하는 플래그
+//        val FLAG_REQ_CAMERA = 101
+//        val FLAG_REA_STORAGE = 102
+//
+//
+//    }
+
+
+//    fun checkPermission(permissions:Array<out String>, flag: Int):Boolean{
+//        for(permission in permissions){
+//            if(ContextCompat.checkSelfPermission(this, permission)!= PackageManager.PERMISSION_GRANTED){
+//                ActivityCompat.requestPermissions(this, permissions, flag)
+//                return false
+//            }
+//        }
+//        return true
+//    }
+
+
+    //======================================옛날 startCapture()
 //    fun startCapture(){
 //        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePicktureIntent ->
 //            takePicktureIntent.resolveActivity(packageManager)?.also {
