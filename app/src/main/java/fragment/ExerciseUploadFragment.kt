@@ -76,7 +76,8 @@ class ExerciseUploadFragment : Fragment() {
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         this.viewProfile!!.video_view.setVideoURI(uri)
         this.viewProfile!!.video_view.start()
-        this.viewProfile!!.tx_info.text = "E-mail: "+email+"\nUser: "+name+"\nDate: "+timeStamp
+        this.viewProfile!!.tx_userName.text = name
+        this.viewProfile!!.tx_date.text = timeStamp
     }
 
     private fun funImageUpload(view:View){

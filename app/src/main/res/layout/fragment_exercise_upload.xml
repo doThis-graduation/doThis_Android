@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,23 +12,58 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="10dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <VideoView
                 android:id="@+id/video_view"
                 android:layout_width="120dp"
-                android:layout_height="120dp"/>
-            <TextView
-                android:id="@+id/tx_info"
-                android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:text="E-mail: \nUser: \nDate: "
-                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tx_userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="userName"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/video_view"
+                app:layout_constraintTop_toTopOf="@+id/video_view"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tx_bar"
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:background="#41EAA0"
+                app:layout_constraintStart_toStartOf="@+id/tx_userName"
+                app:layout_constraintTop_toBottomOf="@+id/tx_userName" />
+
+            <TextView
+                android:id="@+id/tx_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="yymmdd"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/video_view"
+                app:layout_constraintTop_toBottomOf="@+id/tx_bar"
                 android:layout_marginLeft="15dp"/>
-        </LinearLayout>
+
+            <TextView
+                android:layout_width="190dp"
+                android:layout_height="2dp"
+                android:background="#41EAA0"
+                app:layout_constraintStart_toStartOf="@+id/tx_date"
+                app:layout_constraintTop_toBottomOf="@+id/tx_date" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Spinner
             android:id="@+id/spinner"
