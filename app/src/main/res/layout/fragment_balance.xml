@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="촬영하기"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:background="@drawable/custom_layout"
             android:layout_marginTop="10dp"/>
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="선택하기"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:background="@drawable/custom_layout"
             android:layout_marginTop="10dp"/>
