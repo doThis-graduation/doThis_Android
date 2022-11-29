@@ -67,11 +67,11 @@
             android:id="@+id/btn_analyse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="분석하기"
-            android:textSize="20dp"
-            android:background="@color/main_color_g"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="80dp"/>
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/custom_layout"
+            android:text="분석하기"
+            android:textSize="20dp" />
     </RelativeLayout>
 
 </FrameLayout>
