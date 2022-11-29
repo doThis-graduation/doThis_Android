@@ -4,7 +4,7 @@
         android:id="@+id/bn_exercise"
         android:enabled="true"
         android:icon="@drawable/exercise_icon"
-        android:title="Exercise"/>
+        android:title="Exercise" />
 
     <item
         android:id="@+id/bn_balance"

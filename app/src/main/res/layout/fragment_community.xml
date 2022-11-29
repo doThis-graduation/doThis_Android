@@ -29,6 +29,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:fontFamily="@font/fontstyle"
                         android:id="@+id/tx_bestPose"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -37,7 +38,6 @@
                         android:padding="8dp"
                         android:text="이번주 최고의 자세"
                         android:textSize="35dp"
-                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
                         android:layout_marginLeft="15dp"
                         android:text="userName"
                         android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintStart_toEndOf="@+id/imageFilterView"
                         app:layout_constraintTop_toTopOf="@+id/imageFilterView" />
 
@@ -78,7 +78,7 @@
                         android:layout_marginLeft="15dp"
                         android:text="최고의 운동 부위"
                         android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintBottom_toBottomOf="@+id/imageFilterView"
                         app:layout_constraintStart_toEndOf="@+id/imageFilterView" />
 
@@ -99,7 +99,7 @@
                         android:padding="8dp"
                         android:text="이번주 나의 운동"
                         android:textSize="35dp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageFilterView" />
@@ -107,6 +107,7 @@
                     <!--                    weekend 1-->
 
                     <TextView
+                        android:fontFamily="@font/fontstyle"
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,7 +136,7 @@
                         android:layout_marginStart="15dp"
                         android:text="최고의 운동 부위   yymmdd"
                         android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintStart_toEndOf="@+id/img_weekend1"
                         app:layout_constraintTop_toTopOf="@+id/img_weekend1" />
                     <TextView
@@ -147,6 +148,7 @@
 
                     <!--                    weekend 2-->
                     <TextView
+                        android:fontFamily="@font/fontstyle"
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -175,7 +177,7 @@
                         android:layout_marginStart="15dp"
                         android:text="최고의 운동 부위   yymmdd"
                         android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintStart_toEndOf="@+id/img_weekend2"
                         app:layout_constraintTop_toTopOf="@+id/img_weekend2" />
                     <TextView
@@ -188,6 +190,7 @@
                     <!--                    weekend 3-->
 
                     <TextView
+                        android:fontFamily="@font/fontstyle"
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -216,7 +219,7 @@
                         android:layout_marginStart="15dp"
                         android:text="최고의 운동 부위   yymmdd"
                         android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/fontstyle"
                         app:layout_constraintStart_toEndOf="@+id/img_weekend4"
                         app:layout_constraintTop_toTopOf="@+id/img_weekend4" />
                     <TextView
