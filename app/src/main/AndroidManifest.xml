@@ -29,9 +29,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ExerciseActivity"
-            android:exported="false" />
-        <activity
             android:name=".SignInActivity"
             android:exported="false" />
         <activity

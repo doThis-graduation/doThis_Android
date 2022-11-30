@@ -59,11 +59,11 @@
 
                     <TextView
                         android:fontFamily="@font/fontstyle"
-                        android:id="@+id/tx_date"
+                        android:id="@+id/tx_method"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
-                        android:text="yymmdd"
+                        android:text="method"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="@+id/img_profile"
                         app:layout_constraintStart_toEndOf="@+id/img_profile" />
@@ -74,8 +74,8 @@
                         android:layout_width="180dp"
                         android:layout_height="2dp"
                         android:background="#41EAA0"
-                        app:layout_constraintStart_toStartOf="@+id/tx_date"
-                        app:layout_constraintTop_toBottomOf="@+id/tx_date" />
+                        app:layout_constraintStart_toStartOf="@+id/tx_method"
+                        app:layout_constraintTop_toBottomOf="@+id/tx_method" />
 
                     <VideoView
                         android:id="@+id/video_view"

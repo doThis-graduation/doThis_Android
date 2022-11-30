@@ -30,6 +30,7 @@ class ExerciseUploadFragment : Fragment() {
     var uri : Uri? = null
     lateinit var name: String
     lateinit var email: String
+    lateinit var str_uri : String
     var method = "unselected"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +72,7 @@ class ExerciseUploadFragment : Fragment() {
     private fun infoSet() {
         name = arguments?.getString("name").toString()
         email = arguments?.getString("email").toString()
-        val str_uri = arguments?.getString("uri")
+        str_uri = arguments?.getString("uri").toString()
         uri = Uri.parse(str_uri)
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         this.viewProfile!!.video_view.setVideoURI(uri)
@@ -121,6 +122,6 @@ class ExerciseUploadFragment : Fragment() {
     //fragment  전환
     private fun changeFragment(){
         val activity = activity as MainPageActivity
-        activity.setFragment(ExerciseAnalyseFragment())
+        activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method)
     }
 }
