@@ -45,19 +45,19 @@ class MainPageActivity : AppCompatActivity() {
         bottomNav.run { setOnNavigationItemReselectedListener {
             when(it.itemId){
                 R.id.bn_exercise ->{
-                    Toast.makeText(context, "E clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, "E clicked", Toast.LENGTH_SHORT).show()
                     setFragment(ExerciseFragment())
                 }
                 R.id.bn_balance ->{
-                    Toast.makeText(context, "B clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, "B clicked", Toast.LENGTH_SHORT).show()
                     setFragment(BalanceFragment())
                 }
                 R.id.bn_community ->{
-                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
                     setFragment(CommunityFragment())
                 }
                 R.id.bn_mypage ->{
-                    Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()
                     setFragment(MyPageFragment())
                 }
             }
