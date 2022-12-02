@@ -15,6 +15,7 @@ import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.view.*
+import kotlinx.android.synthetic.main.fragment_exercise_upload.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress

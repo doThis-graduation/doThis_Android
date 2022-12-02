@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:text="userName"
                 android:textSize="30dp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/video_view"
                 app:layout_constraintTop_toTopOf="@+id/video_view"
                 android:layout_marginLeft="15dp"
@@ -51,6 +52,7 @@
                 android:layout_height="wrap_content"
                 android:text="yymmdd"
                 android:textSize="30sp"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/video_view"
                 app:layout_constraintTop_toBottomOf="@+id/tx_bar"
                 android:layout_marginLeft="15dp"/>
@@ -69,7 +71,8 @@
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_layout" />
     </LinearLayout>
 
     <RelativeLayout
