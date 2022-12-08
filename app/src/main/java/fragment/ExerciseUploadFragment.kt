@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.Retrofitlmpl
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.view.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.*
@@ -33,6 +34,7 @@ class ExerciseUploadFragment : Fragment() {
     lateinit var email: String
     lateinit var str_uri : String
     var method = "unselected"
+    lateinit var path: String
 
     override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)
     }
@@ -71,6 +73,11 @@ class ExerciseUploadFragment : Fragment() {
 
         //realtime database에 info upload?? 필요??
 
+        /////////////////////////////////////
+        // Retrofit2
+        Retrofitlmpl.service.callServer(path)
+
+
         return viewProfile
     }
 
@@ -103,6 +110,7 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
+//        path
 
 //        thread(start = true){
 //            Thread.sleep(500)
