@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.RetrofitManager
 import com.example.healthcare_exercise.Retrofitlmpl
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_balance.view.*
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.security.auth.callback.Callback
 import kotlin.concurrent.thread
 
 
@@ -35,9 +37,8 @@ class ExerciseUploadFragment : Fragment() {
     lateinit var str_uri : String
     var method = "unselected"
     lateinit var path: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)
-    }
+    val Okay: String = "okay"
+    val Fail: String = "fail"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,17 +68,19 @@ class ExerciseUploadFragment : Fragment() {
         this.viewProfile!!.btn_analyse.setOnClickListener(View.OnClickListener {
             // firebase
             funImageUpload(viewProfile!!)
-            // server
-            
+            // server 에 path 보내고, response 받음
+            RetrofitManager.instance.analyseFin(path = path, completion = {
+                response ->
+                when(response){
+                    Okay ->{
+                        Toast.makeText(context, "api 호출 성공입니다", Toast.LENGTH_SHORT).show()
+                    }
+                    Fail ->{
+                        Toast.makeText(context, "api 호출 에러입니다", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
         })
-
-        //realtime database에 info upload?? 필요??
-
-        /////////////////////////////////////
-        // Retrofit2
-        Retrofitlmpl.service.callServer(path)
-
-
         return viewProfile
     }
 
@@ -110,7 +113,7 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
-//        path
+        path = email+"/exercise/"+method+"/"+date
 
 //        thread(start = true){
 //            Thread.sleep(500)
