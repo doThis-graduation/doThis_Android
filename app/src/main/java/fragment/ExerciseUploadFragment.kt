@@ -34,8 +34,7 @@ class ExerciseUploadFragment : Fragment() {
     lateinit var str_uri : String
     var method = "unselected"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -62,8 +61,13 @@ class ExerciseUploadFragment : Fragment() {
             }
         }
 
-        //storage에 동영상 upload
-        this.viewProfile!!.btn_analyse.setOnClickListener(View.OnClickListener { funImageUpload(viewProfile!!) })
+        //storage에 동영상 upload 및 분석 요청
+        this.viewProfile!!.btn_analyse.setOnClickListener(View.OnClickListener {
+            // firebase
+            funImageUpload(viewProfile!!)
+            // server
+            
+        })
 
         //realtime database에 info upload?? 필요??
 
