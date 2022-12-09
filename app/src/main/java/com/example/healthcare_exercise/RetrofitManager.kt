@@ -8,7 +8,7 @@ import retrofit2.Response
 class RetrofitManager {
     companion object {
         val instance = RetrofitManager()
-        private const val URL = "path"
+        private const val URL = "http://58.127.238.25:5000/"
     }
 
     // get retrofit interface

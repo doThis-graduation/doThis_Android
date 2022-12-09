@@ -7,7 +7,7 @@ import retrofit2.http.*
 interface RetrofitService {
 
     // https://www.~~/url/?query="msg" -> Json 형식으로 반환 받음
-    @GET("/url")
+    @GET("/upload")
     fun analyseFin(@Query("query") searchTerm: String) : Call<JsonElement>
 
 //    @POST("url") // 서버에 get 요청을 할 주소

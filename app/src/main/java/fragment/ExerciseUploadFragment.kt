@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock.sleep
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -69,16 +71,34 @@ class ExerciseUploadFragment : Fragment() {
             // firebase
             funImageUpload(viewProfile!!)
             // server 에 path 보내고, response 받음
+            Log.d("서버","호출 시작예정")
             RetrofitManager.instance.analyseFin(path = path, completion = {
+                // wait response
+                // 방법1. response 가 도착했음을 인식했을 때, 비교 후 changeFragment. 그때까지는 loading
+                // 방법2. response 가 도착할 만한 충분한 시간을 sleep 하고, changeFragment. 그때까지는 loading
                 response ->
-                when(response){
-                    Okay ->{
-                        Toast.makeText(context, "api 호출 성공입니다", Toast.LENGTH_SHORT).show()
-                    }
-                    Fail ->{
-                        Toast.makeText(context, "api 호출 에러입니다", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                if(response==Okay){
+                    Log.d("서버","호출 성공")
+                    sleep(2000)
+                    changeFragment()}
+                else {
+                    Log.d("서버","호출 실패")
+                    sleep(2000)
+                    changeFragment()}
+
+//                response ->
+//                when(response){
+//                    Okay ->{
+//                        Toast.makeText(context, "api 호출 성공입니다", Toast.LENGTH_SHORT).show()
+//                        Log.d("서버","호출 성공")
+//                        changeFragment()
+//                    }
+//                    Fail ->{
+//                        Toast.makeText(context, "api 호출 에러입니다", Toast.LENGTH_SHORT).show()
+//                        Log.d("서버","호출 실패")
+//                        changeFragment()
+//                    }
+
             })
         })
         return viewProfile
@@ -131,7 +151,7 @@ class ExerciseUploadFragment : Fragment() {
             //확인 메세지 출력
             Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
             //fragment 전환
-            changeFragment()
+//            changeFragment()
         }
     }
 
