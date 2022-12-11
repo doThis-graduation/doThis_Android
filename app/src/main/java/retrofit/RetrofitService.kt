@@ -8,5 +8,5 @@ import retrofit2.http.Query
 
 interface RetrofitService {
     @GET("hello")
-    fun loadResponse(@Query("data")path:String): Call<Data>
+    fun loadResponse(@Query("data")path:String): Call<String>
 }

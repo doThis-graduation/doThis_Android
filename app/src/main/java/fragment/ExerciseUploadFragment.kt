@@ -151,8 +151,7 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
-//        path = email+"/exercise/"+method+"/"+date
-        path = "${email}/exercise/${method}/date"
+        path = email+"/exercise/"+method+"/"+date
 
 //        thread(start = true){
 //            Thread.sleep(500)
@@ -185,26 +184,26 @@ class ExerciseUploadFragment : Fragment() {
     fun requestResponse(path: String){
         val call = RetrofitClient.service.loadResponse(path)
 
-        call.enqueue(object: retrofit2.Callback<Data> {
+        call.enqueue(object: retrofit2.Callback<String> {
             override fun onResponse(
-                call: Call<Data>,
-                response: Response<Data>
+                call: Call<String>,
+                response: Response<String>
             ) {
                 if(response.isSuccessful){
                     // ExerciseUploadFragment 안에 정상 response 시 함수 만들기
-                    Log.d("응답","complete"+response.body().toString())
+                    Log.d("응답","complete: "+response.body().toString())
                     changeFragment()
                 }
                 else{
                     // mCallback.~~
-                    Log.d("응답","response fail"+response.body().toString())
+                    Log.d("응답","response fail: "+response.body().toString())
                     changeFragment()
                 }
             }
 
-            override fun onFailure(call: Call<Data>, t: Throwable) {
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 //mCallback.~~()
-                Log.d("응답","server connect fail"+t.toString())
+                Log.d("응답","server connect fail: "+t.toString())
                 changeFragment()
             }
         })
