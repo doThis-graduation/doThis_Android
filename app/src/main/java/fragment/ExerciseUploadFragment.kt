@@ -151,7 +151,8 @@ class ExerciseUploadFragment : Fragment() {
         var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
-        path = email+"/exercise/"+method+"/"+date
+//        path = email+"/exercise/"+method+"/"+date
+        path = "${email}/exercise/${method}/date"
 
 //        thread(start = true){
 //            Thread.sleep(500)
@@ -167,7 +168,7 @@ class ExerciseUploadFragment : Fragment() {
             //loading 끝냄
 //            this.viewProfile!!.progress_bar.progress = 100
             //확인 메세지 출력
-            Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_LONG).show()
+//            Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_SHORT).show()
             //fragment 전환
 //            changeFragment()
         }
@@ -191,19 +192,19 @@ class ExerciseUploadFragment : Fragment() {
             ) {
                 if(response.isSuccessful){
                     // ExerciseUploadFragment 안에 정상 response 시 함수 만들기
-                    Log.d("응답","complete")
+                    Log.d("응답","complete"+response.body().toString())
                     changeFragment()
                 }
                 else{
                     // mCallback.~~
-                    Log.d("응답","response fail")
+                    Log.d("응답","response fail"+response.body().toString())
                     changeFragment()
                 }
             }
 
             override fun onFailure(call: Call<Data>, t: Throwable) {
                 //mCallback.~~()
-                Log.d("응답","server connect fail")
+                Log.d("응답","server connect fail"+t.toString())
                 changeFragment()
             }
         })

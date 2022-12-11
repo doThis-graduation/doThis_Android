@@ -1,3 +1,3 @@
 package retrofit
 
-data class Data(val response:Int)
+data class Data(val response:String)

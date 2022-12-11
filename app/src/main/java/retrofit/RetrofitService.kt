@@ -7,6 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RetrofitService {
-    @GET("download")
+    @GET("hello")
     fun loadResponse(@Query("data")path:String): Call<Data>
 }
