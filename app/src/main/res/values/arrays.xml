@@ -2,6 +2,7 @@
 <resources>
     <string-array name="methods">
         <item>업로드할 운동을 선택해주세요</item>
+        <item>Military press</item>
         <item>Bench Press</item>
         <item>Push Up</item>
         <item>Biceps Curl</item>
