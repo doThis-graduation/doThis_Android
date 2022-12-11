@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.R
@@ -41,6 +42,7 @@ class ExerciseAnalyseFragment : Fragment() {
         binding.txUserName.text = userName
         binding.txMethod.text = method
         binding.videoView.setVideoURI(uri)
+        binding.videoView.setMediaController((MediaController(context)))
         binding.videoView.start()
 
         var storage = FirebaseStorage.getInstance()

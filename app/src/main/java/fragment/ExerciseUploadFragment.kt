@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.MediaController
 import android.widget.Toast
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
@@ -76,6 +77,7 @@ class ExerciseUploadFragment : Fragment() {
         uri = Uri.parse(str_uri)
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         this.viewProfile!!.video_view.setVideoURI(uri)
+        this.viewProfile!!.video_view.setMediaController((MediaController(context)))
         this.viewProfile!!.video_view.start()
         this.viewProfile!!.tx_userName.text = name
         this.viewProfile!!.tx_date.text = timeStamp
@@ -116,10 +118,6 @@ class ExerciseUploadFragment : Fragment() {
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
             //loading 끝냄
 //            this.viewProfile!!.progress_bar.progress = 100
-            //확인 메세지 출력
-//            Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_SHORT).show()
-            //fragment 전환
-//            changeFragment()
             requestResponse(path)
         }
     }
