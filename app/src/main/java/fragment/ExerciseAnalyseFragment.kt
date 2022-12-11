@@ -43,12 +43,7 @@ class ExerciseAnalyseFragment : Fragment() {
 
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.getReference()
-//        storageRef.child("temp/image/celebrity.mp4").downloadUrl.addOnSuccessListener {
-//            Log.d("불러오기","video download success")
-//            binding.vdd.setVideoURI(it)
-//            Log.d("불러오기","video 배치 완료")
-//            binding.vdd.start()
-//        }
+
         storageRef.child("temp/image/graph.png").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
