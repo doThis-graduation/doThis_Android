@@ -35,11 +35,6 @@ class ExerciseUploadFragment : Fragment() {
     lateinit var str_uri : String
     var method = "unselected"
     lateinit var path: String
-    val Okay: String = "okay"
-    val Fail: String = "fail"
-
-    //
-    private val request = Request()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,55 +64,7 @@ class ExerciseUploadFragment : Fragment() {
         this.viewProfile!!.btn_analyse.setOnClickListener(View.OnClickListener {
             // firebase
             funImageUpload(viewProfile!!)
-            requestResponse(path)
-
-            //<----------------------------------------------------
-
-//            request.requestResponse(path,this)
-//
-//            fun loadComplete(data: Data){
-//                Log.d("응답","complete")
-//            }
-//            fun responseIsNotSuccessful(data: Data){
-//                Log.d("응답","response fail")
-//            }
-//            fun loadFail(){
-//                Log.d("응답","server connect fail")
-//            }
-
-
-            //<----------------------------------------------------
-//            // server 에 path 보내고, response 받음
-//            Log.d("서버","호출 시작예정")
-//            RetrofitManager.instance.analyseFin(path = path, completion = {
-//                // wait response
-//                // 방법1. response 가 도착했음을 인식했을 때, 비교 후 changeFragment. 그때까지는 loading
-//                // 방법2. response 가 도착할 만한 충분한 시간을 sleep 하고, changeFragment. 그때까지는 loading
-//                response ->
-//                if(response==Okay){
-//                    Log.d("서버","호출 성공")
-//                    sleep(2000)
-//                    changeFragment()}
-//                else {
-//                    Log.d("서버","호출 실패")
-//                    sleep(2000)
-//                    changeFragment()}
-//
-////                response ->
-////                when(response){
-////                    Okay ->{
-////                        Toast.makeText(context, "api 호출 성공입니다", Toast.LENGTH_SHORT).show()
-////                        Log.d("서버","호출 성공")
-////                        changeFragment()
-////                    }
-////                    Fail ->{
-////                        Toast.makeText(context, "api 호출 에러입니다", Toast.LENGTH_SHORT).show()
-////                        Log.d("서버","호출 실패")
-////                        changeFragment()
-////                    }
-//
-//            })
-//            //---------------------------------------------------->
+//            requestResponse(path)
         })
         return viewProfile
     }
@@ -146,13 +93,13 @@ class ExerciseUploadFragment : Fragment() {
         this.viewProfile!!.video_view.setBackgroundColor(paint.getColor())
 
         //upload
-        var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
+        var timeStamp = SimpleDateFormat("yyMMddHHmm").format(Date())
         var date = SimpleDateFormat("yyMMdd").format(Date())
 //        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
 //        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
 //        path = email+"/exercise/"+method+"/"+date
-        path = email+"_exercise_"+method+"_"+date
+        path = email+"_exercise_"+method+"_"+timeStamp
         var imgFileName = path+".mp4"
         var storageRef = fbStorage?.reference?.child("temp/exercise/")?.child(imgFileName)
 
@@ -173,6 +120,7 @@ class ExerciseUploadFragment : Fragment() {
 //            Toast.makeText(context,"exercise Video Uploaded_"+name+"_"+method, Toast.LENGTH_SHORT).show()
             //fragment 전환
 //            changeFragment()
+            requestResponse(path)
         }
     }
 
@@ -181,7 +129,6 @@ class ExerciseUploadFragment : Fragment() {
         val activity = activity as MainPageActivity
         activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method)
     }
-
 
     //
     fun requestResponse(path: String){
@@ -193,8 +140,12 @@ class ExerciseUploadFragment : Fragment() {
                 response: Response<String>
             ) {
                 if(response.isSuccessful){
-                    // ExerciseUploadFragment 안에 정상 response 시 함수 만들기
-                    Log.d("응답","complete: "+response.body().toString())
+                    var r = response.body().toString()
+                    // 정상 response
+                    Log.d("응답","complete: "+r)
+                    if(r.equals("Get Success")){
+                        Log.d("응답2","된다!!")
+                    }
                     changeFragment()
                 }
                 else{
