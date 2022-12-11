@@ -60,9 +60,6 @@ class ExerciseAnalyseFragment : Fragment() {
                 .into(binding.imgWorstPose)
             Log.d("이미지", "worst 띄움")
         }
-
-
-
         return binding.root
     }
 }

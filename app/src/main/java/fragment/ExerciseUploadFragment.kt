@@ -141,7 +141,7 @@ class ExerciseUploadFragment : Fragment() {
                     var r = response.body().toString()
                     // 정상 response
                     Log.d("응답","complete: "+r)
-                    if(r.equals("Get Success")){
+                    if(r.equals("Result")){
                         Log.d("응답2","된다!!")
                     }
                     changeFragment()
