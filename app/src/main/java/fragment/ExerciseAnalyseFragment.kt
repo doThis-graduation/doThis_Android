@@ -29,7 +29,7 @@ class ExerciseAnalyseFragment : Fragment() {
     ): View? {
         binding = FragmentExerciseAnalyseBinding.inflate(inflater, container, false)
 
-        Toast.makeText(context, "업로드/분석 완료!",Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "분석 완료!",Toast.LENGTH_SHORT).show()
 
         var userName = arguments?.getString("name").toString()
         var method = arguments?.getString("method").toString()
