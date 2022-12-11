@@ -97,12 +97,13 @@ class MainPageActivity : AppCompatActivity() {
         }
     }
 
-    fun setDataAtFragment(fragment:Fragment, uri:String, method:String){
+    fun setDataAtFragment(fragment:Fragment, uri:String, method:String, path:String){
         val bundle = Bundle()
         bundle.putString("name",name)
         bundle.putString("email",email)
         bundle.putString("uri",uri)
         bundle.putString("method", method)
+        bundle.putString("path", path)
 
         fragment.arguments=bundle
         setFragment(fragment)

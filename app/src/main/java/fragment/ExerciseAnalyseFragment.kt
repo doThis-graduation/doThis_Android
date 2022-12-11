@@ -34,6 +34,8 @@ class ExerciseAnalyseFragment : Fragment() {
         var userName = arguments?.getString("name").toString()
         var method = arguments?.getString("method").toString()
         var str_uri = arguments?.getString("uri").toString()
+        var path = arguments?.getString("path").toString()
+
         uri = Uri.parse(str_uri)
 
         binding.txUserName.text = userName
@@ -44,13 +46,13 @@ class ExerciseAnalyseFragment : Fragment() {
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.getReference()
 
-        storageRef.child("temp/image/graph.png").downloadUrl.addOnSuccessListener{
+        storageRef.child("temp/result/"+path+"_graph.png").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
                 .into(binding.imgGraph)
             Log.d("이미지", "graph 띄움")
         }
-        storageRef.child("temp/image/good.png").downloadUrl.addOnSuccessListener {
+        storageRef.child("temp/result/"+path+"_good.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgWorstPose)

@@ -127,7 +127,7 @@ class ExerciseUploadFragment : Fragment() {
     //fragment  전환
     private fun changeFragment(){
         val activity = activity as MainPageActivity
-        activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method)
+        activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method, path)
     }
 
     //

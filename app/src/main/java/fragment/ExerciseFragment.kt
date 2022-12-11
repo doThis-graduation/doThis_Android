@@ -81,7 +81,7 @@ class ExerciseFragment : Fragment() {
                 btn_upload.setOnClickListener(View.OnClickListener {
                     val strUri = uriPhoto.toString()
                     val mainPageActivity = activity as MainPageActivity
-                    mainPageActivity.setDataAtFragment(ExerciseUploadFragment(), strUri, "")
+                    mainPageActivity.setDataAtFragment(ExerciseUploadFragment(), strUri, "", "")
                 })
 //            }
         }
