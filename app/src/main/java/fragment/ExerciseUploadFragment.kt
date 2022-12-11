@@ -148,10 +148,13 @@ class ExerciseUploadFragment : Fragment() {
         //upload
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
         var date = SimpleDateFormat("yyMMdd").format(Date())
-        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
+//        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
-        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
-        path = email+"/exercise/"+method+"/"+date
+//        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
+//        path = email+"/exercise/"+method+"/"+date
+        path = email+"_exercise_"+method+"_"+date
+        var imgFileName = path+".mp4"
+        var storageRef = fbStorage?.reference?.child("temp/exercise/")?.child(imgFileName)
 
 //        thread(start = true){
 //            Thread.sleep(500)

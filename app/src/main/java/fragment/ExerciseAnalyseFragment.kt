@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseAnalyseBinding
 import com.google.firebase.ktx.Firebase
@@ -42,11 +43,23 @@ class ExerciseAnalyseFragment : Fragment() {
 
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.getReference()
-        storageRef.child("temp/image/celebrity.mp4").downloadUrl.addOnSuccessListener {
-            Log.d("불러오기","video download success")
-            binding.vdd.setVideoURI(it)
-            Log.d("불러오기","video 배치 완료")
-            binding.vdd.start()
+//        storageRef.child("temp/image/celebrity.mp4").downloadUrl.addOnSuccessListener {
+//            Log.d("불러오기","video download success")
+//            binding.vdd.setVideoURI(it)
+//            Log.d("불러오기","video 배치 완료")
+//            binding.vdd.start()
+//        }
+        storageRef.child("temp/image/graph.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgGraph)
+            Log.d("이미지", "graph 띄움")
+        }
+        storageRef.child("temp/image/good.png").downloadUrl.addOnSuccessListener {
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgWorstPose)
+            Log.d("이미지", "worst 띄움")
         }
 
 
