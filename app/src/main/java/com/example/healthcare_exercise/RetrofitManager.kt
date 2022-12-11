@@ -4,6 +4,7 @@ import android.util.Log
 import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.Response
+import com.example.healthcare_exercise.Retrofitlmpl
 
 class RetrofitManager {
     companion object {
@@ -24,20 +25,21 @@ class RetrofitManager {
 //        }?: ""
 
         // call
-        val call = retrofitService?.analyseFin(searchTerm = term) ?: return
+        val call = Retrofitlmpl.service.analyseFin(term)
+//        val call = retrofitService?.analyseFin(searchTerm = term) ?: return
 //        val call = retrofitService?.analyseFin(searchTerm = term).let{
 //            it
 //        }?: return
 
         // 호출
-        call.enqueue(object: retrofit2.Callback<JsonElement>{
-            override fun onResponse(call: Call<JsonElement>, response: Response<JsonElement>) {
+        call.enqueue(object: retrofit2.Callback<String>{
+            override fun onResponse(call: Call<String>, response: Response<String>) {
                 Log.d("retrofit", "response success ${response.raw()}")
                 // 완료 되었을 때, response 를 String 으로 가져옴
                 // 그냥 completion 만 하면, 알려주기만 하고 data 를 가져오지는 않는다
                 completion(response.body().toString())
             }
-            override fun onFailure(call: Call<JsonElement>, t: Throwable) {
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("retrofit", "response failure")
                 completion(t.toString())
             }

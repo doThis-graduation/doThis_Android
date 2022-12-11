@@ -18,7 +18,8 @@
         android:label="@string/title"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Helthcare_exercise">
+        android:theme="@style/Theme.Helthcare_exercise"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".introActivity"
             android:exported="true">
