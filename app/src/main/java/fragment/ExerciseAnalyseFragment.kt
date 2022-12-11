@@ -21,7 +21,6 @@ class ExerciseAnalyseFragment : Fragment() {
     var uri : Uri? = null
     lateinit var binding:FragmentExerciseAnalyseBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
