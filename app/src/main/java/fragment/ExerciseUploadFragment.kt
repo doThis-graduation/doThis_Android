@@ -185,7 +185,7 @@ class ExerciseUploadFragment : Fragment() {
 
     //
     fun requestResponse(path: String){
-        val call = RetrofitClient.service.loadResponse(path)
+        val call = RetrofitClient.service.loadResponse("temp/exercise/"+path)
 
         call.enqueue(object: retrofit2.Callback<String> {
             override fun onResponse(
