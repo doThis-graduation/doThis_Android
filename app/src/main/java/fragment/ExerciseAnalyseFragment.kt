@@ -54,12 +54,21 @@ class ExerciseAnalyseFragment : Fragment() {
                 .into(binding.imgGraph)
             Log.d("이미지", "graph 띄움")
         }
-        storageRef.child("temp/result/"+path+"_good.png").downloadUrl.addOnSuccessListener {
+        storageRef.child("temp/result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
-                .into(binding.imgWorstPose)
-            Log.d("이미지", "worst 띄움")
+                .into(binding.imgWorstPose1)
+            Log.d("이미지", "worst1 띄움")
+        }
+        storageRef.child("temp/result/"+path+"_worst2.png").downloadUrl.addOnSuccessListener {
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgWorstPose2)
+            Log.d("이미지", "worst2 띄움")
         }
         return binding.root
     }
 }
+
+//"temp/result/"+path+"_graph.png"
+//"temp/result/"+path+"_good.png"
