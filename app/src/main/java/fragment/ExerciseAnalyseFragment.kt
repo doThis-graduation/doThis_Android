@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_exercise_upload.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.tx_userName
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import com.google.firebase.storage.FirebaseStorage
+import retrofit.Data
+import java.net.URL
 
 class ExerciseAnalyseFragment : Fragment() {
 
@@ -48,7 +50,9 @@ class ExerciseAnalyseFragment : Fragment() {
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.getReference()
 
-        storageRef.child("temp/result/"+path+"_graph.png").downloadUrl.addOnSuccessListener{
+        getUserInfoFromFile()
+
+        storageRef.child("temp/result/"+path+"_graph.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgGraph)
@@ -72,3 +76,8 @@ class ExerciseAnalyseFragment : Fragment() {
 
 //"temp/result/"+path+"_graph.png"
 //"temp/result/"+path+"_good.png"
+
+private fun getUserInfoFromFile(url: URL): Data? {
+
+    return null
+}

@@ -1,3 +1,6 @@
 package retrofit
 
-data class Data(val response:String)
+data class Data(
+    val similarity: String = "",
+    val comment: String = ""
+)
