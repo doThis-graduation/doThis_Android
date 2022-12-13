@@ -18,7 +18,9 @@ import kotlinx.android.synthetic.main.fragment_exercise_upload.*
 import kotlinx.android.synthetic.main.fragment_exercise_upload.tx_userName
 import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import com.google.firebase.storage.FirebaseStorage
+import com.google.gson.Gson
 import retrofit.Data
+import retrofit2.http.Url
 import java.net.URL
 
 class ExerciseAnalyseFragment : Fragment() {
@@ -34,6 +36,7 @@ class ExerciseAnalyseFragment : Fragment() {
 
         Toast.makeText(context, "분석 완료!",Toast.LENGTH_SHORT).show()
 
+        var email = arguments?.getString("email").toString()
         var userName = arguments?.getString("name").toString()
         var method = arguments?.getString("method").toString()
         var str_uri = arguments?.getString("uri").toString()
@@ -50,21 +53,25 @@ class ExerciseAnalyseFragment : Fragment() {
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.getReference()
 
-        getUserInfoFromFile()
+//        storageRef.child(email+"/"+path+"_result/"+path+".json").downloadUrl.addOnSuccessListener {
+//            var result: Data
+//            result = getUserInfoFromFile(it)!!
+//            Log.d("결과",result.toString())
+//        }
 
-        storageRef.child("temp/result/"+path+"_graph.png").downloadUrl.addOnSuccessListener {
+        storageRef.child(email+"/"+path+"_result/"+path+"_graph.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgGraph)
             Log.d("이미지", "graph 띄움")
         }
-        storageRef.child("temp/result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener {
+        storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgWorstPose1)
             Log.d("이미지", "worst1 띄움")
         }
-        storageRef.child("temp/result/"+path+"_worst2.png").downloadUrl.addOnSuccessListener {
+        storageRef.child(email+"/"+path+"_result/"+path+"_worst2.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgWorstPose2)
@@ -77,7 +84,6 @@ class ExerciseAnalyseFragment : Fragment() {
 //"temp/result/"+path+"_graph.png"
 //"temp/result/"+path+"_good.png"
 
-private fun getUserInfoFromFile(url: URL): Data? {
-
-    return null
+private fun getUserInfoFromFile(url: Uri): Data? {
+    return Gson().fromJson(url.toString(), Data::class.java)
 }
