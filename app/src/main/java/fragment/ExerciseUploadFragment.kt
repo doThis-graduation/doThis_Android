@@ -67,7 +67,7 @@ class ExerciseUploadFragment : Fragment() {
         //storage에 동영상 upload 및 분석 요청
         binding.btnAnalyse.setOnClickListener(View.OnClickListener {
             // firebase
-            funImageUpload(viewProfile!!)
+            funImageUpload(binding)
 //            requestResponse(path)
         })
 //        return viewProfile
@@ -87,7 +87,7 @@ class ExerciseUploadFragment : Fragment() {
         binding.txDate.text = timeStamp
     }
 
-    private fun funImageUpload(view:View){
+    private fun funImageUpload(binding:FragmentExerciseUploadBinding){
         //프로그레스바 loading 시작
         binding.progressBar.visibility = View.VISIBLE
         binding.txProgress.visibility = View.VISIBLE
