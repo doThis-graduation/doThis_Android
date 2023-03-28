@@ -19,14 +19,15 @@ import androidx.fragment.app.FragmentManager
 import com.example.healthcare_exercise.MainActivity
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.databinding.FragmentExerciseBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.fragment_balance.view.*
-import kotlinx.android.synthetic.main.fragment_exercise.*
-import kotlinx.android.synthetic.main.fragment_exercise.view.*
-import kotlinx.android.synthetic.main.fragment_exercise.view.btn_choose
-import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+//import kotlinx.android.synthetic.main.fragment_balance.view.*
+//import kotlinx.android.synthetic.main.fragment_exercise.*
+//import kotlinx.android.synthetic.main.fragment_exercise.view.*
+//import kotlinx.android.synthetic.main.fragment_exercise.view.btn_choose
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -35,8 +36,8 @@ import java.util.jar.Manifest
 import kotlin.reflect.typeOf
 
 class ExerciseFragment : Fragment() {
+    lateinit var binding: FragmentExerciseBinding
 
-    private var viewProfile : View?=null
     var pickImageFromAlbum = 0
     var uriPhoto : Uri? = null
 
@@ -47,11 +48,10 @@ class ExerciseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        viewProfile = inflater.inflate(R.layout.fragment_exercise, container, false)
+        binding = FragmentExerciseBinding.inflate(inflater, container, false)
 
         //선택하기 버튼 listener
-        viewProfile!!.btn_choose.setOnClickListener{
+        binding.btnChoose.setOnClickListener{
             var photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "video/*"
             startActivityForResult(photoPickerIntent, pickImageFromAlbum)
@@ -59,7 +59,7 @@ class ExerciseFragment : Fragment() {
 
         //카메라 버튼 listener
 //        viewProfile!!.btn_camera.setOnClickListener {  }
-        return viewProfile
+        return binding.root
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -70,15 +70,15 @@ class ExerciseFragment : Fragment() {
 //            if(requestCode == Activity.RESULT_OK){
                 //img_pre 미리보기
                 uriPhoto = data?.data
-                img_pre.visibility=View.VISIBLE
-                img_pre.setVideoURI(uriPhoto)
-                img_pre.setMediaController((MediaController(context)))
-                img_pre.start()
+                binding.imgPre.visibility=View.VISIBLE
+                binding.imgPre.setVideoURI(uriPhoto)
+                binding.imgPre.setMediaController((MediaController(context)))
+                binding.imgPre.start()
 //                img_pre.setOnCompletionListener(mp->img_pre.start()) //반복자동재생코드
-                btn_upload.visibility=View.VISIBLE
+                binding.btnUpload.visibility=View.VISIBLE
 
                 //firebase에 업로드 하는 함수로 이동 -> upload fragment로 전환
-                btn_upload.setOnClickListener(View.OnClickListener {
+                binding.btnUpload.setOnClickListener(View.OnClickListener {
                     val strUri = uriPhoto.toString()
                     val mainPageActivity = activity as MainPageActivity
                     mainPageActivity.setDataAtFragment(ExerciseUploadFragment(), strUri, "", "")

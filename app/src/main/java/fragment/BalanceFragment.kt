@@ -20,20 +20,21 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.databinding.FragmentBalanceBinding
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.fragment_balance.*
-import kotlinx.android.synthetic.main.fragment_balance.view.*
-import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+//import kotlinx.android.synthetic.main.fragment_balance.*
+//import kotlinx.android.synthetic.main.fragment_balance.view.*
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlinx.android.synthetic.main.fragment_balance.view.progress_bar as progress_bar1
-import kotlinx.android.synthetic.main.fragment_balance.view.tx_progress as tx_progress1
+//import kotlinx.android.synthetic.main.fragment_balance.view.progress_bar as progress_bar1
+//import kotlinx.android.synthetic.main.fragment_balance.view.tx_progress as tx_progress1
 
 class BalanceFragment : Fragment() {
+    lateinit var binding:FragmentBalanceBinding
 
-    private var viewProfile : View?=null
     val REQUEST_IMAGE_CAPTURE = 1
     lateinit var currentPhotoPath : String
 
@@ -50,22 +51,22 @@ class BalanceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewProfile = inflater.inflate(R.layout.fragment_balance, container, false)
+        binding = FragmentBalanceBinding.inflate(inflater,container,false)
 
         //카메라 촬영
-        viewProfile!!.btn_camera.setOnClickListener(View.OnClickListener {
+        binding.btnCamera.setOnClickListener(View.OnClickListener {
             //카메라 실행 코드
 //            startCapture()
         })
 
         //동영상 선택
-        viewProfile!!.btn_choose.setOnClickListener(View.OnClickListener {
+        binding.btnChoose.setOnClickListener(View.OnClickListener {
             var photoPickerIntent = Intent(Intent.ACTION_PICK)
             photoPickerIntent.type = "video/*"
             startActivityForResult(photoPickerIntent, pickImageFromAlbum)
         })
 
-        return viewProfile
+        return binding.root
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -74,22 +75,22 @@ class BalanceFragment : Fragment() {
         //선택하기에 대한 실행
         if(requestCode == pickImageFromAlbum){
             uriPhoto = data?.data
-            img_pre.visibility = View.VISIBLE
-            img_pre.setVideoURI(uriPhoto)
-            img_pre.setMediaController(MediaController(context))
-            img_pre.start()
-            btn_upload.visibility = View.VISIBLE
+            binding.imgPre.visibility = View.VISIBLE
+            binding.imgPre.setVideoURI(uriPhoto)
+            binding.imgPre.setMediaController(MediaController(context))
+            binding.imgPre.start()
+            binding.btnUpload.visibility = View.VISIBLE
 
-            btn_upload.setOnClickListener(View.OnClickListener {
+            binding.btnUpload.setOnClickListener(View.OnClickListener {
                 //progressBar 시작
-                this.viewProfile!!.progress_bar.visibility = View.VISIBLE
-                this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.VISIBLE
+                binding.txProgress.visibility = View.VISIBLE
 
                 //layout 반투명화
                 val paint = Paint()
                 paint.alpha = 80
-                this.viewProfile!!.balance_layout.setBackgroundColor(paint.getColor())
-                this.viewProfile!!.img_pre.setBackgroundColor(paint.getColor())
+                binding.balanceLayout.setBackgroundColor(paint.getColor())
+                binding.imgPre.setBackgroundColor(paint.getColor())
 
                 fbStorage = FirebaseStorage.getInstance()
 

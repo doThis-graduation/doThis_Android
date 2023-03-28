@@ -14,8 +14,9 @@ import android.widget.MediaController
 import android.widget.Toast
 import com.example.healthcare_exercise.MainPageActivity
 import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.databinding.FragmentExerciseUploadBinding
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
 import retrofit.Data
@@ -27,6 +28,8 @@ import retrofit2.Call
 import retrofit2.Response
 
 class ExerciseUploadFragment : Fragment() {
+
+    lateinit var binding:FragmentExerciseUploadBinding
 
     private var viewProfile : View?=null
     var fbStorage : FirebaseStorage?=null
@@ -41,7 +44,7 @@ class ExerciseUploadFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewProfile = inflater.inflate(R.layout.fragment_exercise_upload, container, false)
+        binding = FragmentExerciseUploadBinding.inflate(inflater, container, false)
 
         fbStorage = FirebaseStorage.getInstance()
 
@@ -51,9 +54,9 @@ class ExerciseUploadFragment : Fragment() {
         //스피너 구현
         var methods = resources.getStringArray(R.array.methods)
         var adapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, methods)
-        this.viewProfile!!.spinner.adapter = adapter
+        binding.spinner.adapter = adapter
 
-        this.viewProfile!!.spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+        binding.spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 method = methods.get(position)
             }
@@ -62,12 +65,13 @@ class ExerciseUploadFragment : Fragment() {
         }
 
         //storage에 동영상 upload 및 분석 요청
-        this.viewProfile!!.btn_analyse.setOnClickListener(View.OnClickListener {
+        binding.btnAnalyse.setOnClickListener(View.OnClickListener {
             // firebase
             funImageUpload(viewProfile!!)
 //            requestResponse(path)
         })
-        return viewProfile
+//        return viewProfile
+        return binding.root
     }
 
     private fun infoSet() {
@@ -76,23 +80,23 @@ class ExerciseUploadFragment : Fragment() {
         str_uri = arguments?.getString("uri").toString()
         uri = Uri.parse(str_uri)
         var timeStamp = SimpleDateFormat("yyMMdd_HH:mm").format(Date())
-        this.viewProfile!!.video_view.setVideoURI(uri)
-        this.viewProfile!!.video_view.setMediaController((MediaController(context)))
-        this.viewProfile!!.video_view.start()
-        this.viewProfile!!.tx_userName.text = name
-        this.viewProfile!!.tx_date.text = timeStamp
+        binding.videoView.setVideoURI(uri)
+        binding.videoView.setMediaController((MediaController(context)))
+        binding.videoView.start()
+        binding.txUserName.text = name
+        binding.txDate.text = timeStamp
     }
 
     private fun funImageUpload(view:View){
         //프로그레스바 loading 시작
-        this.viewProfile!!.progress_bar.visibility = View.VISIBLE
-        this.viewProfile!!.tx_progress.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.txProgress.visibility = View.VISIBLE
 
         //layout 반투명화
         val paint = Paint()
         paint.alpha = 80
-        this.viewProfile!!.exercise_layout.setBackgroundColor(paint.getColor())
-        this.viewProfile!!.video_view.setBackgroundColor(paint.getColor())
+        binding.exerciseLayout.setBackgroundColor(paint.getColor())
+        binding.videoView.setBackgroundColor(paint.getColor())
 
         //upload
         var timeStamp = SimpleDateFormat("yyMMddHHmm").format(Date())
