@@ -68,7 +68,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner222"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"

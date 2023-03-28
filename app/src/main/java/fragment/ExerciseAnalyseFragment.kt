@@ -13,10 +13,10 @@ import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseAnalyseBinding
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_exercise_analyse.*
-import kotlinx.android.synthetic.main.fragment_exercise_upload.*
-import kotlinx.android.synthetic.main.fragment_exercise_upload.tx_userName
-import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
+//import kotlinx.android.synthetic.main.fragment_exercise_analyse.*
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.*
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.tx_userName
+//import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import retrofit.Data

@@ -12,5 +12,13 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+//allprojects{
+//    repositories{
+//
+//        mavenCentral()
+//    }
+//}
+
 rootProject.name = "healthcare_exercise"
 include ':app'
