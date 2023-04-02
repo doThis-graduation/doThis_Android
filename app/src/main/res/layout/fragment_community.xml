@@ -59,6 +59,7 @@
                         android:layout_marginLeft="15dp"
                         android:text="userName"
                         android:textSize="30sp"
+                        android:textColor="@color/white"
                         android:fontFamily="@font/fontstyle"
                         app:layout_constraintStart_toEndOf="@+id/imageFilterView"
                         app:layout_constraintTop_toTopOf="@+id/imageFilterView" />

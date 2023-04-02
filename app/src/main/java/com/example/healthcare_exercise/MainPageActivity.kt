@@ -13,10 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import fragment.BalanceFragment
-import fragment.CommunityFragment
-import fragment.ExerciseFragment
-import fragment.MyPageFragment
+import fragment.*
 
 class MainPageActivity : AppCompatActivity() {
 
@@ -54,7 +51,8 @@ class MainPageActivity : AppCompatActivity() {
 //                }
                 R.id.bn_community ->{
 //                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
-                    setFragment(CommunityFragment())
+//                    setFragment(CommunityFragment())
+                    setDataAtFragment(CommunityFragment(), "", "", "")
                 }
                 R.id.bn_mypage ->{
 //                    Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()

@@ -5,17 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.healthcare_exercise.R
-class CommunityFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+import com.example.healthcare_exercise.databinding.FragmentCommunityBinding
 
+class CommunityFragment : Fragment() {
+    lateinit var binding:FragmentCommunityBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_community, container, false)
+        binding = FragmentCommunityBinding.inflate(inflater,container,false)
+
+        var userName = arguments?.getString("name").toString()
+        binding.txUserName.text=userName
+
+        return binding.root
     }
 }
