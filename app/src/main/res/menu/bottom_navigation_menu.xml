@@ -6,11 +6,11 @@
         android:icon="@drawable/exercise_icon"
         android:title="Exercise" />
 
-    <item
-        android:id="@+id/bn_balance"
-        android:enabled="true"
-        android:icon="@drawable/stretching_icon"
-        android:title="Balance"/>
+<!--    <item-->
+<!--        android:id="@+id/bn_balance"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/stretching_icon"-->
+<!--        android:title="Balance"/>-->
 
     <item
         android:id="@+id/bn_community"

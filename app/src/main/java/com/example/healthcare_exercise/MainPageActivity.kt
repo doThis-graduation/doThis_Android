@@ -48,10 +48,10 @@ class MainPageActivity : AppCompatActivity() {
 //                    Toast.makeText(context, "E clicked", Toast.LENGTH_SHORT).show()
                     setFragment(ExerciseFragment())
                 }
-                R.id.bn_balance ->{
-//                    Toast.makeText(context, "B clicked", Toast.LENGTH_SHORT).show()
-                    setFragment(BalanceFragment())
-                }
+//                R.id.bn_balance ->{
+////                    Toast.makeText(context, "B clicked", Toast.LENGTH_SHORT).show()
+//                    setFragment(BalanceFragment())
+//                }
                 R.id.bn_community ->{
 //                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
                     setFragment(CommunityFragment())
