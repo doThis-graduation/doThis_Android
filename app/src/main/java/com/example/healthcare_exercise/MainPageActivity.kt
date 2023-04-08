@@ -52,7 +52,7 @@ class MainPageActivity : AppCompatActivity() {
                 R.id.bn_community ->{
 //                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
 //                    setFragment(CommunityFragment())
-                    setDataAtFragment(CommunityFragment(), "", "", "")
+                    setDataAtFragment(RecordFragment(), "", "", "")
                 }
                 R.id.bn_mypage ->{
 //                    Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()

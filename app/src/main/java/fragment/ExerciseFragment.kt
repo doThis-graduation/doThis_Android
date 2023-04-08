@@ -69,6 +69,7 @@ class ExerciseFragment : Fragment() {
         if(requestCode == pickImageFromAlbum){
 //            if(requestCode == Activity.RESULT_OK){
                 //img_pre 미리보기
+
                 uriPhoto = data?.data
                 binding.imgPre.visibility=View.VISIBLE
                 binding.imgPre.setVideoURI(uriPhoto)
