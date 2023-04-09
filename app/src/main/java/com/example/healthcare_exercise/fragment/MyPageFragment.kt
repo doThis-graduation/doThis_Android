@@ -1,4 +1,4 @@
-package fragment
+package com.example.healthcare_exercise.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.databinding.DataBindingUtil.setContentView
-import com.example.healthcare_exercise.MainActivity
+import com.example.healthcare_exercise.activity.MainActivity
 import com.example.healthcare_exercise.R
-import com.example.healthcare_exercise.databinding.FragmentMyPageBinding
 
 class MyPageFragment : Fragment() {
 
@@ -25,7 +23,7 @@ class MyPageFragment : Fragment() {
         val btn_signOut = getView()?.findViewById<Button>(R.id.btn_signOut)
         btn_signOut?.setOnClickListener(View.OnClickListener {
             (activity as MainActivity).signOut()
-            val intent = Intent(context,MainActivity::class.java)
+            val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
         })
     }

@@ -1,4 +1,4 @@
-package fragment
+package com.example.healthcare_exercise.fragment
 
 import android.graphics.Paint
 import android.net.Uri
@@ -11,16 +11,13 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.MediaController
-import android.widget.Toast
-import com.example.healthcare_exercise.MainPageActivity
+import com.example.healthcare_exercise.activity.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseUploadBinding
 import com.google.firebase.storage.FirebaseStorage
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
-import retrofit.Data
-import retrofit.Request
 import java.text.SimpleDateFormat
 import java.util.*
 import retrofit.RetrofitClient

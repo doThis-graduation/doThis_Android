@@ -1,4 +1,4 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

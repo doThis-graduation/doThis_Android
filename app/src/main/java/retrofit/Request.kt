@@ -1,12 +1,12 @@
 package retrofit
 
-import fragment.ExerciseUploadFragment
+import com.example.healthcare_exercise.fragment.ExerciseUploadFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Request {
-    fun requestResponse(path: String, mCallback:ExerciseUploadFragment){
+    fun requestResponse(path: String, mCallback: ExerciseUploadFragment){
         val call = RetrofitClient.service.loadResponse(path.toString())
 
         call.enqueue(object: Callback<String> {

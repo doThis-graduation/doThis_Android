@@ -1,19 +1,19 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.activity
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.ActivityMainPageBinding
+import com.example.healthcare_exercise.fragment.ExerciseFragment
+import com.example.healthcare_exercise.fragment.MyPageFragment
+import com.example.healthcare_exercise.fragment.RecordFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import fragment.*
 
 class MainPageActivity : AppCompatActivity() {
 

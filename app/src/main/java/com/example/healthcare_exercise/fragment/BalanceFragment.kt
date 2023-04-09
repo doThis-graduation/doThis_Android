@@ -1,32 +1,21 @@
-package fragment
+package com.example.healthcare_exercise.fragment
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import com.example.healthcare_exercise.MainPageActivity
-import com.example.healthcare_exercise.R
+import com.example.healthcare_exercise.activity.MainPageActivity
 import com.example.healthcare_exercise.databinding.FragmentBalanceBinding
 import com.google.firebase.storage.FirebaseStorage
 //import kotlinx.android.synthetic.main.fragment_balance.*
 //import kotlinx.android.synthetic.main.fragment_balance.view.*
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
-import java.io.File
-import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 //import kotlinx.android.synthetic.main.fragment_balance.view.progress_bar as progress_bar1

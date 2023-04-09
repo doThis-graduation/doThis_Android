@@ -1,4 +1,4 @@
-package fragment
+package com.example.healthcare_exercise.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

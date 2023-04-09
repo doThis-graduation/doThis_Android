@@ -1,4 +1,4 @@
-package fragment
+package com.example.healthcare_exercise.fragment
 
 import android.content.Context
 import android.net.Uri
@@ -7,11 +7,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.RecordAdapter
 import com.example.healthcare_exercise.RecordData
-import com.example.healthcare_exercise.databinding.FragmentCommunityBinding
 import com.example.healthcare_exercise.databinding.FragmentRecordBinding
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.ktx.auth
+//import com.google.firebase.database.DataSnapshot
+//import com.google.firebase.database.DatabaseError
+//import com.google.firebase.database.ValueEventListener
+//import com.google.firebase.ktx.database
+
 
 class RecordFragment : Fragment() {
 
@@ -24,6 +29,11 @@ class RecordFragment : Fragment() {
     ): View? {
         binding = FragmentRecordBinding.inflate(inflater, container, false)
 
+        // Firebase realTime Database 연결
+//        var db = Firebase.
+
+
+        // recycler view 호출
         context?.let { initRecordRecycler(it) }
 
         return binding.root

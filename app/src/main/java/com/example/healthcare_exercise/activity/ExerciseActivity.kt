@@ -1,4 +1,4 @@
-//package com.example.healthcare_exercise
+package com.example.healthcare_exercise.activity//package com.example.healthcare_exercise
 //
 //import androidx.appcompat.app.AppCompatActivity
 //import android.os.Bundle

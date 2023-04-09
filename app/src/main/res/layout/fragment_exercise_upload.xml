@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.ExerciseUploadFragment"
+    tools:context=".fragment.ExerciseUploadFragment"
     android:layout_marginTop="66dp"
     android:id="@+id/exercise_layout">
 

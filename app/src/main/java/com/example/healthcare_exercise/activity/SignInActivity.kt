@@ -1,4 +1,4 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +21,7 @@ class SignInActivity : AppCompatActivity() {
         //이상 없으면 회원가입 완료
         //로그인 화면으로 돌아감
         Toast.makeText(this, "Sign In Success!",Toast.LENGTH_SHORT).show()
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.retrofit
 
 import com.google.gson.JsonElement
 import retrofit2.Call

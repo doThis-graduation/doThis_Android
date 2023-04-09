@@ -1,9 +1,10 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.healthcare_exercise.R
 
 class introActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

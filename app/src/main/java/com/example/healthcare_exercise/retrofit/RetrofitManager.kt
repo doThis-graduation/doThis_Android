@@ -1,10 +1,8 @@
-package com.example.healthcare_exercise
+package com.example.healthcare_exercise.retrofit
 
 import android.util.Log
-import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.Response
-import com.example.healthcare_exercise.Retrofitlmpl
 
 class RetrofitManager {
     companion object {
@@ -13,7 +11,8 @@ class RetrofitManager {
     }
 
     // get retrofit interface
-    private val retrofitService : RetrofitService? = Retrofitlmpl.getClient(URL)?.create(RetrofitService::class.java)
+    private val retrofitService : RetrofitService? = Retrofitlmpl.getClient(URL)?.create(
+        RetrofitService::class.java)
 
     // api 호출
     fun analyseFin(path: String?, completion:(String)->Unit){

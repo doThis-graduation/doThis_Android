@@ -21,7 +21,7 @@
         android:theme="@style/Theme.Helthcare_exercise"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".introActivity"
+            android:name=".activity.introActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,13 +30,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignInActivity"
+            android:name=".activity.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".MainPageActivity"
+            android:name=".activity.MainPageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
         </activity>
     </application>
