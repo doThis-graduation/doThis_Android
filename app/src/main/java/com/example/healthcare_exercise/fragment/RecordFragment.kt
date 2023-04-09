@@ -7,11 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.healthcare_exercise.RecordAdapter
-import com.example.healthcare_exercise.RecordData
+import com.example.healthcare_exercise.recyclerView.RecordAdapter
+import com.example.healthcare_exercise.recyclerView.RecordData
 import com.example.healthcare_exercise.databinding.FragmentRecordBinding
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.auth.ktx.auth
+
 //import com.google.firebase.database.DataSnapshot
 //import com.google.firebase.database.DatabaseError
 //import com.google.firebase.database.ValueEventListener

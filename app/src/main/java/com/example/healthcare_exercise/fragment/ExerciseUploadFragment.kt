@@ -143,7 +143,7 @@ class ExerciseUploadFragment : Fragment() {
                     // 정상 response
                     Log.d("응답","complete: "+r)
                     if(r.equals("Result")){
-                        Log.d("응답2","된다!!")
+                        Log.d("응답","된다!!")
                     }
                     changeFragment()
                 }

@@ -1,5 +1,6 @@
 package com.example.healthcare_exercise.fragment
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import android.widget.MediaController
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.databinding.FragmentExerciseAnalyseBinding
+import com.example.healthcare_exercise.recyclerView.BestAdapter
+import com.example.healthcare_exercise.recyclerView.BestData
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
@@ -22,6 +25,8 @@ class ExerciseAnalyseFragment : Fragment() {
 
     var uri : Uri? = null
     lateinit var binding:FragmentExerciseAnalyseBinding
+    lateinit var bestAdapter: BestAdapter
+    val datas = mutableListOf<BestData>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,20 +65,42 @@ class ExerciseAnalyseFragment : Fragment() {
                 .into(binding.imgGraph)
             Log.d("이미지", "graph 띄움")
         }
-        storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener {
-            Glide.with(this)
-                .load(it)
-                .into(binding.imgWorstPose1)
-            Log.d("이미지", "worst1 띄움")
-        }
-        storageRef.child(email+"/"+path+"_result/"+path+"_worst2.png").downloadUrl.addOnSuccessListener {
-            Glide.with(this)
-                .load(it)
-                .into(binding.imgWorstPose2)
-            Log.d("이미지", "worst2 띄움")
-        }
+
+//        context?.let{initBestRecycler(it)}
+
+//        storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener {
+//            Glide.with(this)
+//                .load(it)
+//                .into(binding.imgWorstPose1)
+//            Log.d("이미지", "worst1 띄움")
+//        }
+//        storageRef.child(email+"/"+path+"_result/"+path+"_worst2.png").downloadUrl.addOnSuccessListener {
+//            Glide.with(this)
+//                .load(it)
+//                .into(binding.imgWorstPose2)
+//            Log.d("이미지", "worst2 띄움")
+//        }
+
+
+        var best1 = storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl
+
         return binding.root
     }
+
+//    private fun initBestRecycler(context: Context){
+//        bestAdapter = BestAdapter(context)
+//        binding.rvBest.adapter = bestAdapter
+//        val stUri = "content://com.google.android.apps.photos.contentprovider/-1/2/content%3A%2F%2Fmedia%2Fexternal%2Fvideo%2Fmedia%2F38/ORIGINAL/NONE/video%2Fmp4/375404404"
+//        datas.apply{
+//            add(BestData(result = 85, uri=Uri.parse(stUri)))
+//            add(BestData(result = 65, uri=Uri.parse(stUri)))
+//            add(BestData(result = 75, uri=Uri.parse(stUri)))
+//
+//            bestAdapter.datas = datas
+//            bestAdapter.notifyDataSetChanged()
+//        }
+//
+//    }
 }
 
 //"temp/result/"+path+"_graph.png"
