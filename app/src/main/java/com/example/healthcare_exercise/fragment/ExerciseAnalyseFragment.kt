@@ -79,10 +79,47 @@ class ExerciseAnalyseFragment : Fragment() {
 //                .load(it)
 //                .into(binding.imgWorstPose2)
 //            Log.d("이미지", "worst2 띄움")
-//        }
+//        }storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener
 
+// result 1
+        binding.txResult1.text = "result 1"
+        storageRef.child(email+"/"+path+"_result/"+path+"_best1.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgBest1)
+        }
 
-        var best1 = storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl
+// result 1
+        binding.txResult1.text = "result 2"
+        storageRef.child(email+"/"+path+"_result/"+path+"_best2.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgBest2)
+        }
+
+// result 1
+        binding.txResult1.text = "result 3"
+        storageRef.child(email+"/"+path+"_result/"+path+"_best3.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgBest3)
+        }
+
+// result 1
+        binding.txResult1.text = "result 4"
+        storageRef.child(email+"/"+path+"_result/"+path+"_best4.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgBest4)
+        }
+
+// result 1
+        binding.txResult1.text = "result 5"
+        storageRef.child(email+"/"+path+"_result/"+path+"_best5.png").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgBest5)
+        }
 
         return binding.root
     }

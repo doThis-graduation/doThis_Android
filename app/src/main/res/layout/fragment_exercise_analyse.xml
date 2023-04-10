@@ -153,7 +153,7 @@
 
                 <TextView
                     android:id="@+id/tx_result1"
-                    android:layout_width="match_parent"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_layout2"
@@ -177,7 +177,7 @@
                 <!--best 2-->
                 <TextView
                     android:id="@+id/tx_result2"
-                    android:layout_width="match_parent"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_layout2"
@@ -200,7 +200,7 @@
                 <!--best 3-->
                 <TextView
                     android:id="@+id/tx_result3"
-                    android:layout_width="match_parent"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_layout2"
@@ -223,7 +223,7 @@
                 <!--best 4-->
                 <TextView
                     android:id="@+id/tx_result4"
-                    android:layout_width="match_parent"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_layout2"
@@ -246,7 +246,7 @@
                 <!--best 5-->
                 <TextView
                     android:id="@+id/tx_result5"
-                    android:layout_width="match_parent"
+                    android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_layout2"
