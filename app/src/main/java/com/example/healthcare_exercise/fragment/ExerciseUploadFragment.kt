@@ -144,6 +144,7 @@ class ExerciseUploadFragment : Fragment() {
                     Log.d("응답","complete: "+r)
                     if(r.equals("Result")){
                         Log.d("응답","된다!!")
+                        // Log.e(TAG, "body: " + new Gson().toJson(response.body()));
                     }
                     changeFragment()
                 }

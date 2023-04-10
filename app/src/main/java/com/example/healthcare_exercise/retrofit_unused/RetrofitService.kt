@@ -1,6 +1,5 @@
-package com.example.healthcare_exercise.retrofit
+package com.example.healthcare_exercise.retrofit_unused
 
-import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.http.*
 
