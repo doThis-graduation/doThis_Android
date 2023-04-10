@@ -15,6 +15,7 @@ import com.example.healthcare_exercise.activity.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseUploadBinding
 import com.google.firebase.storage.FirebaseStorage
+import retrofit.PostModel
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
@@ -133,10 +134,10 @@ class ExerciseUploadFragment : Fragment() {
     fun requestResponse(path: String){
         val call = RetrofitClient.service.loadResponse("temp/exercise/"+path)
 
-        call.enqueue(object: retrofit2.Callback<String> {
+        call.enqueue(object: retrofit2.Callback<PostModel> {
             override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
+                call: Call<PostModel>,
+                response: Response<PostModel>
             ) {
                 if(response.isSuccessful){
                     var r = response.body().toString()
@@ -155,7 +156,7 @@ class ExerciseUploadFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
+            override fun onFailure(call: Call<PostModel>, t: Throwable) {
                 //mCallback.~~()
                 Log.d("응답","server connect fail: "+t.toString())
                 changeFragment()
