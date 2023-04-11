@@ -103,7 +103,7 @@ class ExerciseUploadFragment : Fragment() {
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
 //        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
 //        path = email+"/exercise/"+method+"/"+date
-        path = email+"_exercise_"+method+"_"+timeStamp
+        path = email+"/exercise_"+method+"_"+timeStamp
         var imgFileName = path+".mp4"
         var storageRef = fbStorage?.reference?.child("temp/exercise/")?.child(imgFileName)
 
@@ -132,7 +132,7 @@ class ExerciseUploadFragment : Fragment() {
 
     //
     fun requestResponse(path: String){
-        val call = RetrofitClient.service.loadResponse("temp/exercise/"+path)
+        val call = RetrofitClient.service.loadResponse("temp/video/user/"+path)
 
         call.enqueue(object: retrofit2.Callback<PostModel> {
             override fun onResponse(

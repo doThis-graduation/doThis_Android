@@ -41,6 +41,7 @@ class ExerciseAnalyseFragment : Fragment() {
         var method = arguments?.getString("method").toString()
         var str_uri = arguments?.getString("uri").toString()
         var path = arguments?.getString("path").toString()
+        path = "temp/image/"+path+"/"
 
         uri = Uri.parse(str_uri)
 
@@ -59,7 +60,7 @@ class ExerciseAnalyseFragment : Fragment() {
 //            Log.d("결과",result.toString())
 //        }
 
-        storageRef.child(email+"/"+path+"_result/"+path+"_graph.png").downloadUrl.addOnSuccessListener {
+        storageRef.child(path+"graph.png").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
                 .into(binding.imgGraph)
@@ -83,42 +84,67 @@ class ExerciseAnalyseFragment : Fragment() {
 
 // result 1
         binding.txResult1.text = "result 1"
-        storageRef.child(email+"/"+path+"_result/"+path+"_best1.png").downloadUrl.addOnSuccessListener{
+        storageRef.child(path+"best1_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
-                .into(binding.imgBest1)
+                .into(binding.imgUserBest1)
+        }
+        storageRef.child(path+"best1_pro.jpg").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgExpertBest1)
         }
 
-// result 1
+// result 2
         binding.txResult1.text = "result 2"
-        storageRef.child(email+"/"+path+"_result/"+path+"_best2.png").downloadUrl.addOnSuccessListener{
+        storageRef.child(path+"best2_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
-                .into(binding.imgBest2)
+                .into(binding.imgUserBest2)
+        }
+        storageRef.child(path+"best2_pro.jpg").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgExpertBest2)
         }
 
-// result 1
+// result 3
         binding.txResult1.text = "result 3"
-        storageRef.child(email+"/"+path+"_result/"+path+"_best3.png").downloadUrl.addOnSuccessListener{
+        storageRef.child(path+"best3_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
-                .into(binding.imgBest3)
+                .into(binding.imgUserBest3)
+        }
+        storageRef.child(path+"best3_pro.jpg").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgExpertBest3)
         }
 
-// result 1
+// result 4
         binding.txResult1.text = "result 4"
-        storageRef.child(email+"/"+path+"_result/"+path+"_best4.png").downloadUrl.addOnSuccessListener{
+        storageRef.child(path+"best4_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
-                .into(binding.imgBest4)
+                .into(binding.imgUserBest4)
+        }
+        storageRef.child(path+"best4_pro.jpg").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgExpertBest4)
         }
 
-// result 1
+// result 5
         binding.txResult1.text = "result 5"
-        storageRef.child(email+"/"+path+"_result/"+path+"_best5.png").downloadUrl.addOnSuccessListener{
+        storageRef.child(path+"best5_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
-                .into(binding.imgBest5)
+                .into(binding.imgUserBest5)
+        }
+        storageRef.child(path+"best5_pro.jpg").downloadUrl.addOnSuccessListener{
+            Glide.with(this)
+                .load(it)
+                .into(binding.imgExpertBest5)
         }
 
         return binding.root
