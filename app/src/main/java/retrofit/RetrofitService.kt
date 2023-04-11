@@ -9,5 +9,5 @@ import retrofit2.http.Query
 
 interface RetrofitService {
     @POST("download_and_analyze")
-    fun loadResponse(@Query("data")path:String): Call<PostModel>
+    fun loadResponse(@Query("data")path:String): Call<String>
 }

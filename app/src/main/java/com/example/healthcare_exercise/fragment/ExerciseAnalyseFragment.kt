@@ -18,6 +18,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
 import retrofit.Data
+import retrofit.PostModel
 import retrofit2.http.Url
 import java.net.URL
 
@@ -41,7 +42,11 @@ class ExerciseAnalyseFragment : Fragment() {
         var method = arguments?.getString("method").toString()
         var str_uri = arguments?.getString("uri").toString()
         var path = arguments?.getString("path").toString()
+        var jsonPath = "temp/result/"+path+".json"
         path = "temp/image/"+path+"/"
+
+        // temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
+        // temp/result/temp/image/drj9802@gmail.com/exercise_Squat_2304120140/.json
 
         uri = Uri.parse(str_uri)
 
@@ -52,7 +57,7 @@ class ExerciseAnalyseFragment : Fragment() {
         binding.videoView.start()
 
         var storage = FirebaseStorage.getInstance()
-        var storageRef = storage.getReference()
+        var storageRef = storage.reference
 
 //        storageRef.child(email+"/"+path+"_result/"+path+".json").downloadUrl.addOnSuccessListener {
 //            var result: Data
@@ -82,12 +87,26 @@ class ExerciseAnalyseFragment : Fragment() {
 //            Log.d("이미지", "worst2 띄움")
 //        }storageRef.child(email+"/"+path+"_result/"+path+"_worst1.png").downloadUrl.addOnSuccessListener
 
+// result json get
+//        lateinit var result: PostModel
+//        storageRef.child(jsonPath).downloadUrl.addOnSuccessListener {
+//            Log.d("결과_json","json 다운로드 성공 1")
+//            result = getUserInfoFromFile(it)!!
+//            Log.d("결과_json","json uri: "+ result.toString())
+//        }
+//        Log.d("결과",result.result.toString())
+//        binding.txResult.text = result.result.toString()
+
+        Log.d("경로_json", jsonPath)
 // result 1
-        binding.txResult1.text = "result 1"
+//        binding.txResult1.text = result.result1.toString()
+        // /temp/image/example123@gmail.com/exercise_squat_2304112205
+        Log.d("스토리지", "받아오기 시작!!!!=> "+ path+"best1_user.jpg")
         storageRef.child(path+"best1_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
                 .into(binding.imgUserBest1)
+            Log.d("스토리지", "성공@@")
         }
         storageRef.child(path+"best1_pro.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
@@ -96,7 +115,7 @@ class ExerciseAnalyseFragment : Fragment() {
         }
 
 // result 2
-        binding.txResult1.text = "result 2"
+//        binding.txResult1.text = result.result2.toString()
         storageRef.child(path+"best2_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
@@ -109,7 +128,7 @@ class ExerciseAnalyseFragment : Fragment() {
         }
 
 // result 3
-        binding.txResult1.text = "result 3"
+//        binding.txResult1.text = result.result3.toString()
         storageRef.child(path+"best3_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
@@ -122,7 +141,7 @@ class ExerciseAnalyseFragment : Fragment() {
         }
 
 // result 4
-        binding.txResult1.text = "result 4"
+//        binding.txResult1.text = result.result4.toString()
         storageRef.child(path+"best4_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
@@ -135,7 +154,7 @@ class ExerciseAnalyseFragment : Fragment() {
         }
 
 // result 5
-        binding.txResult1.text = "result 5"
+//        binding.txResult1.text = result.result5.toString()
         storageRef.child(path+"best5_user.jpg").downloadUrl.addOnSuccessListener{
             Glide.with(this)
                 .load(it)
@@ -169,6 +188,16 @@ class ExerciseAnalyseFragment : Fragment() {
 //"temp/result/"+path+"_graph.png"
 //"temp/result/"+path+"_good.png"
 
-private fun getUserInfoFromFile(url: Uri): Data? {
-    return Gson().fromJson(url.toString(), Data::class.java)
-}
+//private fun getUserInfoFromFile(url: Uri): PostModel? {
+////    Log.d("결과_json","json uri: "+ url.toString())
+//    val jsonString:String = getJsonFromUrl(url)
+//
+//    return Gson().fromJson(url.toString(), PostModel::class.java)
+//}
+
+
+
+
+
+// temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
+// temp/result/temp/image/drj9802@gmail.com/exercise_Squat_2304120140/.json

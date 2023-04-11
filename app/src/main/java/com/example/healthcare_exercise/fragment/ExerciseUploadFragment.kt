@@ -98,14 +98,10 @@ class ExerciseUploadFragment : Fragment() {
 
         //upload
         var timeStamp = SimpleDateFormat("yyMMddHHmm").format(Date())
-        var date = SimpleDateFormat("yyMMdd").format(Date())
-//        var imgFileName = "VIDEO_"+timeStamp+"_.mp4"
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
-//        var storageRef = fbStorage?.reference?.child(email)?.child("exercise")?.child(method)?.child(date)?.child(imgFileName)
-//        path = email+"/exercise/"+method+"/"+date
         path = email+"/exercise_"+method+"_"+timeStamp
         var imgFileName = path+".mp4"
-        var storageRef = fbStorage?.reference?.child("temp/exercise/")?.child(imgFileName)
+        var storageRef = fbStorage?.reference?.child("temp/video/user/")?.child(imgFileName)
 
 //        thread(start = true){
 //            Thread.sleep(500)
@@ -115,6 +111,8 @@ class ExerciseUploadFragment : Fragment() {
 //            Thread.sleep(500)
 //            this.viewProfile!!.progress_bar.incrementProgressBy(15)
 //        }
+
+
 
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
@@ -134,10 +132,10 @@ class ExerciseUploadFragment : Fragment() {
     fun requestResponse(path: String){
         val call = RetrofitClient.service.loadResponse("temp/video/user/"+path)
 
-        call.enqueue(object: retrofit2.Callback<PostModel> {
+        call.enqueue(object: retrofit2.Callback<String> {
             override fun onResponse(
-                call: Call<PostModel>,
-                response: Response<PostModel>
+                call: Call<String>,
+                response: Response<String>
             ) {
                 if(response.isSuccessful){
                     var r = response.body().toString()
@@ -152,11 +150,12 @@ class ExerciseUploadFragment : Fragment() {
                 else{
                     // mCallback.~~
                     Log.d("응답","response fail: "+response.body().toString())
+                    Log.d("응답","response fail: "+response.code())
                     changeFragment()
                 }
             }
 
-            override fun onFailure(call: Call<PostModel>, t: Throwable) {
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 //mCallback.~~()
                 Log.d("응답","server connect fail: "+t.toString())
                 changeFragment()
