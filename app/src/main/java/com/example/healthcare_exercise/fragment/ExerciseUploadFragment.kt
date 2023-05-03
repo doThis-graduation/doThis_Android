@@ -14,6 +14,9 @@ import android.widget.MediaController
 import com.example.healthcare_exercise.activity.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseUploadBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import retrofit.PostModel
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
@@ -44,6 +47,7 @@ class ExerciseUploadFragment : Fragment() {
     ): View? {
         binding = FragmentExerciseUploadBinding.inflate(inflater, container, false)
 
+        // 스토리지
         fbStorage = FirebaseStorage.getInstance()
 
         //사용자 정보 text set

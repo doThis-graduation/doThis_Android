@@ -14,9 +14,16 @@ import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.databinding.FragmentExerciseAnalyseBinding
 import com.example.healthcare_exercise.recyclerView.BestAdapter
 import com.example.healthcare_exercise.recyclerView.BestData
+import com.google.firebase.auth.GetTokenResult
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.gson.Gson
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit.Data
 import retrofit.PostModel
 import retrofit2.http.Url
@@ -28,6 +35,7 @@ class ExerciseAnalyseFragment : Fragment() {
     lateinit var binding:FragmentExerciseAnalyseBinding
     lateinit var bestAdapter: BestAdapter
     val datas = mutableListOf<BestData>()
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +51,9 @@ class ExerciseAnalyseFragment : Fragment() {
         var str_uri = arguments?.getString("uri").toString()
         var path = arguments?.getString("path").toString()
         var jsonPath = "temp/result/"+path+".json"
+        var jsonTestPath = "temp/result/drj9898gmail/exercise_unselected/"
         path = "temp/image/"+path+"/"
+        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"
 
         // temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
         // temp/result/temp/image/drj9802@gmail.com/exercise_Squat_2304120140/.json
@@ -58,6 +68,70 @@ class ExerciseAnalyseFragment : Fragment() {
 
         var storage = FirebaseStorage.getInstance()
         var storageRef = storage.reference
+////////////////////////////////////////////////////////////
+        //original
+////////////////////////////////////////////////////////////
+        Log.d("파베", "시작")
+        // realTime DB
+        database = Firebase.database.getReference("temp")
+        // json file path: tmep / result / email / exercise_[method]_[timestamp].json
+        database.child("result").child("result").get().addOnSuccessListener {
+            Log.i("파베", "Got value ${it.value.toString()}")
+            binding.txResult.text=it.value.toString()+"%"
+        }.addOnFailureListener {
+            Log.e("파베", "Error getting data", it)
+        }
+
+        database.child("result").child("result1").get().addOnSuccessListener{
+            Log.i("파베", "Got value ${it.value.toString()}")
+            binding.txResult1.text=it.value.toString()+"%"
+        }.addOnFailureListener{
+            Log.e("파베","Error getting data 1", it)
+        }
+
+        database.child("result").child("result2").get().addOnSuccessListener{
+            Log.i("파베","Got value ${it.value.toString()}")
+            binding.txResult2.text=it.value.toString()+"%"
+        }.addOnFailureListener{
+            Log.e("파베","Error getting data 2", it)
+        }
+
+        database.child("result").child("result3").get().addOnSuccessListener{
+            Log.i("파베","Got value ${it.value.toString()}")
+            binding.txResult3.text=it.value.toString()+"%"
+        }.addOnFailureListener{
+            Log.e("파베","Error getting data 3", it)
+        }
+
+        database.child("result").child("result4").get().addOnSuccessListener{
+            Log.i("파베","Got value ${it.value.toString()}")
+            binding.txResult4.text=it.value.toString()+"%"
+        }.addOnFailureListener{
+            Log.e("파베","Error getting data 4", it)
+        }
+
+        database.child("result").child("result5").get().addOnSuccessListener{
+            Log.i("파베","Got value ${it.value.toString()}")
+            binding.txResult5.text=it.value.toString()+"%"
+        }.addOnFailureListener{
+            Log.e("파베","Error getting data 5", it)
+        }
+        Log.d("파베", "끝")
+////////////////////////////////////////////////////////////
+        // new
+
+
+
+////////////////////////////////////////////////////////////
+//        val postListener = object: ValueEventListener{
+//            override fun onDataChange(dataSnapshot: DataSnapshot){
+//
+//            }
+//        }
+////////////////////////////////////////////////////////////
+
+
+
 
 //        storageRef.child(email+"/"+path+"_result/"+path+".json").downloadUrl.addOnSuccessListener {
 //            var result: Data
@@ -188,12 +262,10 @@ class ExerciseAnalyseFragment : Fragment() {
 //"temp/result/"+path+"_graph.png"
 //"temp/result/"+path+"_good.png"
 
-//private fun getUserInfoFromFile(url: Uri): PostModel? {
-////    Log.d("결과_json","json uri: "+ url.toString())
-//    val jsonString:String = getJsonFromUrl(url)
-//
-//    return Gson().fromJson(url.toString(), PostModel::class.java)
-//}
+private fun getUserInfoFromFile(json: JsonObject): PostModel? {
+//    Log.d("결과_json","json uri: "+ url.toString())
+    return Gson().fromJson(json, PostModel::class.java)
+}
 
 
 

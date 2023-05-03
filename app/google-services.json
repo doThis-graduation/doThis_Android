@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "45071554276",
+    "firebase_url": "https://healthproject-c02b8-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "healthproject-c02b8",
     "storage_bucket": "healthproject-c02b8.appspot.com"
   },
@@ -14,11 +15,35 @@
       },
       "oauth_client": [
         {
+          "client_id": "45071554276-5c1jn64r1qu71eo8219pd9j6a4961pqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthcare_exercise",
+            "certificate_hash": "73dd5893537a9585b2fcfd4d3f18df9fedf71d65"
+          }
+        },
+        {
+          "client_id": "45071554276-5m1huslpfv7pm9u07sgffqj89jbn6jbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthcare_exercise",
+            "certificate_hash": "1b5b5eed0bfe792196853e4d4d32d29483f99f28"
+          }
+        },
+        {
           "client_id": "45071554276-i5g2l6sdtddqbphbtaihrcp6h5t6a6r7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.healthcare_exercise",
             "certificate_hash": "40af85d6c3ff61dee76d728047c934491ac5a44b"
+          }
+        },
+        {
+          "client_id": "45071554276-ql9danhhhgkigs54gcfcgp37vi1bd9bi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthcare_exercise",
+            "certificate_hash": "d417b5a43195e9e0433a7baed5544c0b11cff0b5"
           }
         },
         {

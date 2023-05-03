@@ -10,6 +10,9 @@ object RetrofitClient {
         .connectTimeout(240, TimeUnit.SECONDS)
         .readTimeout(240, TimeUnit.SECONDS)
         .writeTimeout(240, TimeUnit.SECONDS)
+//        .connectTimeout(1, TimeUnit.SECONDS)
+//        .readTimeout(1, TimeUnit.SECONDS)
+//        .writeTimeout(1, TimeUnit.SECONDS)
         .build()
 
     private const val baseUrl = "http://58.127.238.25:5000/"
