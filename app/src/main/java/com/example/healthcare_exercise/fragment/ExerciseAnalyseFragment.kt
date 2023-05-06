@@ -33,8 +33,8 @@ class ExerciseAnalyseFragment : Fragment() {
 
     var uri : Uri? = null
     lateinit var binding:FragmentExerciseAnalyseBinding
-    lateinit var bestAdapter: BestAdapter
-    val datas = mutableListOf<BestData>()
+//    lateinit var bestAdapter: BestAdapter
+//    val datas = mutableListOf<BestData>()
     private lateinit var database: DatabaseReference
 
     override fun onCreateView(
@@ -45,15 +45,22 @@ class ExerciseAnalyseFragment : Fragment() {
 
         Toast.makeText(context, "분석 완료!",Toast.LENGTH_SHORT).show()
 
+        // get data from ExerciseUploadFragment through MainPageActivity
         var email = arguments?.getString("email").toString()
+        var token = email.split('.');
         var userName = arguments?.getString("name").toString()
         var method = arguments?.getString("method").toString()
+        var time = arguments?.getString("time").toString()
         var str_uri = arguments?.getString("uri").toString()
-        var path = arguments?.getString("path").toString()
-        var jsonPath = "temp/result/"+path+".json"
-        var jsonTestPath = "temp/result/drj9898gmail/exercise_unselected/"
-        path = "temp/image/"+path+"/"
-        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"
+        var path = arguments?.getString("path").toString() // 기존에 넘어 오는 path
+
+        // path for storage
+        path = "temp/image/"+path+"/"   // 원래 코드에 적용 시킬 path
+        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"    // 임시 path
+        // path for realtime DB
+        var resultPath = "result/"+path // 원래 resultPath
+        resultPath = "result/"+token[0]+"_com/exercise_"+method+"_"+time    // 최종 적용시킬 resultPath
+        resultPath = "result/example123@gmail_com/exercise_squat_2304112205"    // 임시 resultPath
 
         // temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
         // temp/result/temp/image/drj9802@gmail.com/exercise_Squat_2304120140/.json
@@ -70,47 +77,50 @@ class ExerciseAnalyseFragment : Fragment() {
         var storageRef = storage.reference
 ////////////////////////////////////////////////////////////
         //original
+
+        // getReference("temp") 없이 그냥 resultPath 에 temp를 포함시켜서 child로 접근 해보기...!!
+
 ////////////////////////////////////////////////////////////
         Log.d("파베", "시작")
         // realTime DB
         database = Firebase.database.getReference("temp")
         // json file path: tmep / result / email / exercise_[method]_[timestamp].json
-        database.child("result").child("result").get().addOnSuccessListener {
+        database.child(resultPath).child("result").get().addOnSuccessListener {
             Log.i("파베", "Got value ${it.value.toString()}")
             binding.txResult.text=it.value.toString()+"%"
         }.addOnFailureListener {
             Log.e("파베", "Error getting data", it)
         }
 
-        database.child("result").child("result1").get().addOnSuccessListener{
+        database.child(resultPath).child("result1").get().addOnSuccessListener{
             Log.i("파베", "Got value ${it.value.toString()}")
             binding.txResult1.text=it.value.toString()+"%"
         }.addOnFailureListener{
             Log.e("파베","Error getting data 1", it)
         }
 
-        database.child("result").child("result2").get().addOnSuccessListener{
+        database.child(resultPath).child("result2").get().addOnSuccessListener{
             Log.i("파베","Got value ${it.value.toString()}")
             binding.txResult2.text=it.value.toString()+"%"
         }.addOnFailureListener{
             Log.e("파베","Error getting data 2", it)
         }
 
-        database.child("result").child("result3").get().addOnSuccessListener{
+        database.child(resultPath).child("result3").get().addOnSuccessListener{
             Log.i("파베","Got value ${it.value.toString()}")
             binding.txResult3.text=it.value.toString()+"%"
         }.addOnFailureListener{
             Log.e("파베","Error getting data 3", it)
         }
 
-        database.child("result").child("result4").get().addOnSuccessListener{
+        database.child(resultPath).child("result4").get().addOnSuccessListener{
             Log.i("파베","Got value ${it.value.toString()}")
             binding.txResult4.text=it.value.toString()+"%"
         }.addOnFailureListener{
             Log.e("파베","Error getting data 4", it)
         }
 
-        database.child("result").child("result5").get().addOnSuccessListener{
+        database.child(resultPath).child("result5").get().addOnSuccessListener{
             Log.i("파베","Got value ${it.value.toString()}")
             binding.txResult5.text=it.value.toString()+"%"
         }.addOnFailureListener{
@@ -170,8 +180,7 @@ class ExerciseAnalyseFragment : Fragment() {
 //        }
 //        Log.d("결과",result.result.toString())
 //        binding.txResult.text = result.result.toString()
-
-        Log.d("경로_json", jsonPath)
+        
 // result 1
 //        binding.txResult1.text = result.result1.toString()
         // /temp/image/example123@gmail.com/exercise_squat_2304112205
@@ -262,10 +271,10 @@ class ExerciseAnalyseFragment : Fragment() {
 //"temp/result/"+path+"_graph.png"
 //"temp/result/"+path+"_good.png"
 
-private fun getUserInfoFromFile(json: JsonObject): PostModel? {
+//private fun getUserInfoFromFile(json: JsonObject): PostModel? {
 //    Log.d("결과_json","json uri: "+ url.toString())
-    return Gson().fromJson(json, PostModel::class.java)
-}
+//    return Gson().fromJson(json, PostModel::class.java)
+//}
 
 
 

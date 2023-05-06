@@ -40,6 +40,7 @@ class ExerciseUploadFragment : Fragment() {
     lateinit var str_uri : String
     var method = "unselected"
     lateinit var path: String
+    lateinit var time: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -102,6 +103,7 @@ class ExerciseUploadFragment : Fragment() {
 
         //upload
         var timeStamp = SimpleDateFormat("yyMMddHHmm").format(Date())
+        time = timeStamp.toString()
         if(method.equals("업로드할 운동을 선택해주세요")) method = "unselected"
         path = email+"/exercise_"+method+"_"+timeStamp
         var imgFileName = path+".mp4"
@@ -129,7 +131,7 @@ class ExerciseUploadFragment : Fragment() {
     //fragment  전환
     private fun changeFragment(){
         val activity = activity as MainPageActivity
-        activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method, path)
+        activity.setDataAtFragment(ExerciseAnalyseFragment(), str_uri, method, path, time)
     }
 
     //

@@ -52,7 +52,7 @@ class MainPageActivity : AppCompatActivity() {
                 R.id.bn_community ->{
 //                    Toast.makeText(context, "C clicked", Toast.LENGTH_SHORT).show()
 //                    setFragment(CommunityFragment())
-                    setDataAtFragment(RecordFragment(), "", "", "")
+                    setDataAtFragment(RecordFragment(), "", "", "", "")
                 }
                 R.id.bn_mypage ->{
 //                    Toast.makeText(context, "M clicked", Toast.LENGTH_SHORT).show()
@@ -95,13 +95,14 @@ class MainPageActivity : AppCompatActivity() {
         }
     }
 
-    fun setDataAtFragment(fragment:Fragment, uri:String, method:String, path:String){
+    fun setDataAtFragment(fragment:Fragment, uri:String, method:String, path:String, time:String){
         val bundle = Bundle()
         bundle.putString("name",name)
         bundle.putString("email",email)
         bundle.putString("uri",uri)
         bundle.putString("method", method)
         bundle.putString("path", path)
+        bundle.putString("time", time)
 
         fragment.arguments=bundle
         setFragment(fragment)
