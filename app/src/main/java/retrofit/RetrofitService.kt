@@ -8,6 +8,6 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface RetrofitService {
-    @POST("download_and_analyze")
-    fun loadResponse(@Query("data")path:String): Call<String>
+//    @POST("download_and_analyze")
+//    fun loadResponse(@Query("data")path:String): Call<String>
 }
