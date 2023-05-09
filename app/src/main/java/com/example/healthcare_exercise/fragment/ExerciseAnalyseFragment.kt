@@ -60,7 +60,7 @@ class ExerciseAnalyseFragment : Fragment() {
         // path for realtime DB
         var resultPath = "result/"+path // 원래 resultPath
         resultPath = "result/"+token[0]+"_com/exercise_"+method+"_"+time    // 최종 적용시킬 resultPath
-        resultPath = "result/example123@gmail_com/exercise_squat_2304112205"    // 임시 resultPath
+//        resultPath = "result/example123@gmail_com/exercise_squat_2304112205"    // 임시 resultPath
 
         // temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
         // temp/result/temp/image/drj9802@gmail.com/exercise_Squat_2304120140/.json

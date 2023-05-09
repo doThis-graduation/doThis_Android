@@ -122,6 +122,7 @@ class ExerciseUploadFragment : Fragment() {
 
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
+            Log.d("파베","완료!!")
             //loading 끝냄
 //            this.viewProfile!!.progress_bar.progress = 100
             requestResponse(path)
