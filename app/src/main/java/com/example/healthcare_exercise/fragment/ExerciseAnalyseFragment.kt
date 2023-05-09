@@ -1,6 +1,5 @@
 package com.example.healthcare_exercise.fragment
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -12,22 +11,10 @@ import android.widget.MediaController
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.healthcare_exercise.databinding.FragmentExerciseAnalyseBinding
-import com.example.healthcare_exercise.recyclerView.BestAdapter
-import com.example.healthcare_exercise.recyclerView.BestData
-import com.google.firebase.auth.GetTokenResult
-import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.gson.Gson
-import com.google.gson.JsonObject
-import org.json.JSONObject
-import retrofit.Data
-import retrofit.PostModel
-import retrofit2.http.Url
-import java.net.URL
 
 class ExerciseAnalyseFragment : Fragment() {
 
@@ -47,7 +34,7 @@ class ExerciseAnalyseFragment : Fragment() {
 
         // get data from ExerciseUploadFragment through MainPageActivity
         var email = arguments?.getString("email").toString()
-        var token = email.split('.');
+        var token = email.split('.')
         var userName = arguments?.getString("name").toString()
         var method = arguments?.getString("method").toString()
         var time = arguments?.getString("time").toString()
@@ -58,8 +45,8 @@ class ExerciseAnalyseFragment : Fragment() {
         path = "temp/image/"+path+"/"   // 원래 코드에 적용 시킬 path
 //        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"    // 임시 path
         // path for realtime DB
-        var resultPath = "result/"+path // 원래 resultPath
-        resultPath = "result/"+token[0]+"_com/exercise_"+method+"_"+time    // 최종 적용시킬 resultPath
+//        var resultPath = "result/"+path // 원래 resultPath
+        var resultPath = "temp/result/"+token[0]+"_com/exercise_"+method+"_"+time    // 최종 적용시킬 resultPath
 //        resultPath = "result/example123@gmail_com/exercise_squat_2304112205"    // 임시 resultPath
 
         // temp/result/drj9802@gmail.com/exercise_Squat_2304120140/.json
@@ -83,7 +70,7 @@ class ExerciseAnalyseFragment : Fragment() {
 ////////////////////////////////////////////////////////////
         Log.d("파베", "시작")
         // realTime DB
-        database = Firebase.database.getReference("temp")
+        database = Firebase.database.getReference()
         // json file path: tmep / result / email / exercise_[method]_[timestamp].json
         database.child(resultPath).child("result").get().addOnSuccessListener {
             Log.i("파베", "Got value ${it.value.toString()}")

@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object RetrofitClient {
+object RetrofitClient22 {
 //    private val okHttpClient = OkHttpClient.Builder()
 //        .connectTimeout(240, TimeUnit.SECONDS)
 //        .readTimeout(240, TimeUnit.SECONDS)
@@ -22,5 +22,5 @@ object RetrofitClient {
 //        .addConverterFactory(GsonConverterFactory.create())
 //        .build()
 //
-//    val service = retrofit.create(RetrofitService::class.java)
+//    val service = retrofit.create(RetrofitService22::class.java)
 }

@@ -14,17 +14,15 @@ import android.widget.MediaController
 import com.example.healthcare_exercise.activity.MainPageActivity
 import com.example.healthcare_exercise.R
 import com.example.healthcare_exercise.databinding.FragmentExerciseUploadBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import com.example.healthcare_exercise.retrofitNew.RetrofitClient
 import com.google.firebase.storage.FirebaseStorage
-import retrofit.PostModel
+import retrofit.RetrofitClient22
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.*
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.progress_bar
 //import kotlinx.android.synthetic.main.fragment_exercise_upload.view.tx_progress
 import java.text.SimpleDateFormat
 import java.util.*
-import retrofit.RetrofitClient
+//import retrofit.RetrofitClient22
 import retrofit2.Call
 import retrofit2.Response
 
@@ -122,7 +120,7 @@ class ExerciseUploadFragment : Fragment() {
 
         //업로드, 업로드 확인
         storageRef?.putFile(uri!!)?.addOnSuccessListener{
-            Log.d("파베","완료!!")
+            Log.d("파베","된다!!")
             //loading 끝냄
 //            this.viewProfile!!.progress_bar.progress = 100
             requestResponse(path)
@@ -137,6 +135,7 @@ class ExerciseUploadFragment : Fragment() {
 
     //
     fun requestResponse(path: String){
+//        val call = RetrofitClient22.service.loadResponse("temp/video/user/"+path)
         val call = RetrofitClient.service.loadResponse("temp/video/user/"+path)
 
         call.enqueue(object: retrofit2.Callback<String> {

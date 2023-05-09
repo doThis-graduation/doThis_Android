@@ -1,13 +1,14 @@
 package retrofit
 
+import android.util.Log
 import com.example.healthcare_exercise.fragment.ExerciseUploadFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class Request {
+class Request22 {
 //    fun requestResponse(path: String, mCallback: ExerciseUploadFragment){
-//        val call = RetrofitClient.service.loadResponse(path.toString())
+//        val call = RetrofitClient22.service.loadResponse(path.toString())
 //
 //        call.enqueue(object: Callback<String> {
 //            override fun onResponse(

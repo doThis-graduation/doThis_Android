@@ -2,7 +2,7 @@ package retrofit
 
 import com.google.gson.annotations.SerializedName
 
-class PostModel {
+class PostModel22 {
 //    @SerializedName("result")
 //    var result: Int = 0
 //
