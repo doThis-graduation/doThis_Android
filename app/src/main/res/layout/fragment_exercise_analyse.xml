@@ -85,7 +85,6 @@
                     android:fontFamily="@font/fontstyle"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="87%"
                     android:textSize="25sp"
                     app:layout_constraintBottom_toTopOf="@+id/video_view"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +160,7 @@
                     android:background="@drawable/custom_layout2"
                     android:fontFamily="@font/fontstyle"
                     android:padding="5dp"
-                    android:text="   87%"
+                    android:text=" "
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/tx_best" />
 
@@ -196,7 +195,7 @@
                     android:background="@drawable/custom_layout2"
                     android:fontFamily="@font/fontstyle"
                     android:padding="5dp"
-                    android:text="   87%"
+                    android:text="  "
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/img_expertBest1" />
                 <ImageView
@@ -230,7 +229,7 @@
                     android:background="@drawable/custom_layout2"
                     android:fontFamily="@font/fontstyle"
                     android:padding="5dp"
-                    android:text="   87%"
+                    android:text=" "
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/img_expertBest2" />
                 <ImageView
@@ -264,7 +263,7 @@
                     android:background="@drawable/custom_layout2"
                     android:fontFamily="@font/fontstyle"
                     android:padding="5dp"
-                    android:text="   86%"
+                    android:text="   "
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/img_expertBest3" />
                 <ImageView
@@ -298,7 +297,7 @@
                     android:background="@drawable/custom_layout2"
                     android:fontFamily="@font/fontstyle"
                     android:padding="5dp"
-                    android:text="   86%"
+                    android:text="  "
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@+id/img_expertBest4" />
                 <ImageView

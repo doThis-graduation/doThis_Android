@@ -56,7 +56,7 @@ class ExerciseAnalyseFragment : Fragment() {
 
         // path for storage
         path = "temp/image/"+path+"/"   // 원래 코드에 적용 시킬 path
-        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"    // 임시 path
+//        path = "temp/image/drj9802@gmail.com/exercise_Squat_2304120145/"    // 임시 path
         // path for realtime DB
         var resultPath = "result/"+path // 원래 resultPath
         resultPath = "result/"+token[0]+"_com/exercise_"+method+"_"+time    // 최종 적용시킬 resultPath
