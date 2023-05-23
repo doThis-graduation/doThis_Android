@@ -20,14 +20,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/img_sim"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="5dp"
-        android:src="@drawable/ic_launcher_background"
+    <LinearLayout
+        android:id="@+id/layout_result"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:orientation="vertical"
+        android:background="@drawable/custom_layout2"
+        android:gravity="center"
         app:layout_constraintStart_toEndOf="@+id/tx_num"
-        app:layout_constraintTop_toTopOf="@+id/tx_num" />
+        app:layout_constraintTop_toTopOf="@+id/tx_num"
+        android:layout_marginLeft="5dp">
+        <TextView
+            android:id="@+id/tx_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/fontstyle"
+            android:text="89%"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center_vertical"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tx_part"
@@ -38,9 +51,9 @@
         android:text="최고의 운동 부위"
         android:textSize="20sp"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/img_sim"
-        app:layout_constraintStart_toEndOf="@+id/img_sim"
-        app:layout_constraintTop_toTopOf="@+id/img_sim" />
+        app:layout_constraintBottom_toBottomOf="@+id/layout_result"
+        app:layout_constraintStart_toEndOf="@+id/layout_result"
+        app:layout_constraintTop_toTopOf="@+id/layout_result" />
 
     <TextView
         android:id="@+id/tx_date"
