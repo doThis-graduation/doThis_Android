@@ -2,9 +2,11 @@
 This is healthcare application to analyze and manage the personal workout.
 This project is for Gachon University graduation project.
 
+
 ## What is “doThis”?
 
 diThis if an Android application that analyze the user’s workout video by comparing the posture with the expert’s (health trainer) workout video.
+
 
 ## Motivation
 
@@ -13,13 +15,16 @@ diThis if an Android application that analyze the user’s workout video by comp
 - Limitations of working out alone at home without a trainer.
     - Many people are injured by exercising due to incorrect posture.
 
+
 ## Functions
 
 - Upload workout video & Analyze.
 - Showing analysis records.
 - Match to trainer.
 
+
 ## Demo
+
 
 ## “doThis” is useful for…
 
